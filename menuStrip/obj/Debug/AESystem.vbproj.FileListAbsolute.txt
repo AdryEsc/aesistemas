@@ -1,0 +1,13 @@
+C:\Users\adry\source\repos\menuStrip\menuStrip\bin\Debug\menuStrip.exe.config
+C:\Users\adry\source\repos\menuStrip\menuStrip\bin\Debug\menuStrip.exe
+C:\Users\adry\source\repos\menuStrip\menuStrip\bin\Debug\menuStrip.pdb
+C:\Users\adry\source\repos\menuStrip\menuStrip\bin\Debug\menuStrip.xml
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\AESystem.vbprojAssemblyReference.cache
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.AppAESystem.resources
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.Resources.resources
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.abmProductos.resources
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\AESystem.vbproj.GenerateResource.cache
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\AESystem.vbproj.CoreCompileInputs.cache
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.exe
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.xml
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.pdb

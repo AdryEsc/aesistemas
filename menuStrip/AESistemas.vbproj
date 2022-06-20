@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{650BFAC5-B60A-435A-99D2-63359E19C313}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>menuStrip.My.MyApplication</StartupObject>
+    <RootNamespace>menuStrip</RootNamespace>
+    <AssemblyName>AESistemas</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\adry\Documents\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://localhost/menuStrip/</UpdateUrl>
+    <ProductName>AE Sistema</ProductName>
+    <PublisherName>Adrian Escalante</PublisherName>
+    <SuiteName>AE Sistemas</SuiteName>
+    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>AESistemas.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>AESistemas.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>DFC753A55E948E6231FF24009ED2F2A9190EE42B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>AESistemas_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icono-principal.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppAESistemas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppAESistemas.Designer.vb">
+      <DependentUpon>AppAESistemas.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CLIENTES\abmClientes.Designer.vb">
+      <DependentUpon>abmClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CLIENTES\abmClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EMPLEADOS\abmEmpleados.Designer.vb">
+      <DependentUpon>abmEmpleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLEADOS\abmEmpleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODULOS\soloLetras.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PRODUCTOS\abmProductos.Designer.vb">
+      <DependentUpon>abmProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUCTOS\abmProductos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PROVEEDORES\abmProveedores.Designer.vb">
+      <DependentUpon>abmProveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PROVEEDORES\abmProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="prueba.Designer.vb">
+      <DependentUpon>prueba.vb</DependentUpon>
+    </Compile>
+    <Compile Include="prueba.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODULOS\soloNumeros.vb" />
+    <Compile Include="texboxSoloNumerosOletras.Designer.vb">
+      <DependentUpon>texboxSoloNumerosOletras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="texboxSoloNumerosOletras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USUARIOS\abmUsuarios.Designer.vb">
+      <DependentUpon>abmUsuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="USUARIOS\abmUsuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="USUARIOS\inicioSesion.Designer.vb">
+      <DependentUpon>inicioSesion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="USUARIOS\inicioSesion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VENTAS\abmVentas.Designer.vb">
+      <DependentUpon>abmVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VENTAS\abmVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppAESistemas.resx">
+      <DependentUpon>AppAESistemas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CLIENTES\abmClientes.resx">
+      <DependentUpon>abmClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMPLEADOS\abmEmpleados.resx">
+      <DependentUpon>abmEmpleados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRODUCTOS\abmProductos.resx">
+      <DependentUpon>abmProductos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PROVEEDORES\abmProveedores.resx">
+      <DependentUpon>abmProveedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="prueba.resx">
+      <DependentUpon>prueba.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="texboxSoloNumerosOletras.resx">
+      <DependentUpon>texboxSoloNumerosOletras.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USUARIOS\abmUsuarios.resx">
+      <DependentUpon>abmUsuarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USUARIOS\inicioSesion.resx">
+      <DependentUpon>inicioSesion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VENTAS\abmVentas.resx">
+      <DependentUpon>abmVentas.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AESistemas_TemporaryKey.pfx" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono producto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icono-principal.ico" />
+    <None Include="Resources\INGRESAR.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

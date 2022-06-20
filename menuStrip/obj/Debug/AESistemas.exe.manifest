@@ -43,24 +43,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AESistemas.exe" size="293792">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AESistemas.exe" size="294816">
       <assemblyIdentity name="AESistemas" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YiPVjjvmemmwaply1a5BTxQOpat5RCPKPBOaWPuPJbs=</dsig:DigestValue>
+        <dsig:DigestValue>CmKnEnFt02s06QrRI12rajBzvgP1CouKpFyUWDKa7MU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="AESistemas.exe.config" size="188">
+  <file name="AESistemas.exe.config" size="765">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>c922zfRb5ORzqEo8SDjt8Mx8lDMhGTWhqKcK/oileDM=</dsig:DigestValue>
+      <dsig:DigestValue>YaVSv1/uKDFmD7p/f2/r6t4kFslgFPbX/enZUdhRWs0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="icono-principal.ico" size="59586">

@@ -5,6 +5,8 @@
     End Sub
 
     Private Sub inicioSesion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim bd As New conexionBD
+        bd.conectarBD()
 
     End Sub
 

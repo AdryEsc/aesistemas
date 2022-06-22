@@ -36,4 +36,12 @@
     Private Sub ABMProveedoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMProveedoresToolStripMenuItem.Click
         abmProveedores.ShowDialog()
     End Sub
+
+    Private Sub AppAESistemas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dtp_fecha.Refresh()
+        dtp_fecha.Format = DateTimePickerFormat.Custom
+        dtp_fecha.CustomFormat = "dd/MM/yyyy"
+        dtp_fecha.Value = DateTime.Now
+        dtp_fecha.ShowUpDown = False
+    End Sub
 End Class

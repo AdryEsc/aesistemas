@@ -13,7 +13,7 @@ Public Class usuarios
     Dim c_email As String
     Dim c_rol As String
     Dim c_fechaAlta As Date
-    Dim c_activo As Integer
+    Dim c_activo As String
     'Dim c_fecheBaja As Date
 
     Dim conx As New conexionBD()
@@ -100,11 +100,11 @@ Public Class usuarios
         End Set
     End Property
 
-    Public Property Activo() As Integer
+    Public Property Activo() As String
         Get
             Return Me.c_activo
         End Get
-        Set(value As Integer)
+        Set(value As String)
             Me.c_activo = value
         End Set
     End Property
@@ -119,8 +119,16 @@ Public Class usuarios
     'End Property
 
     Public Sub insertarUsuario(p_dni As String, p_nombre As String, p_apellido As String, p_usuario As String, p_contrasena As String, p_email As String, p_rol As String)
+        'Dim busqueda As Boolean
+        'Dim aux_dni As Integer = Integer.Parse(p_dni)
+        'busqueda = buscarUsuario(aux_dni, p_email)
         Try
             conx.conectarBD()
+
+            'If (busqueda = True) Then
+            '    MessageBox.Show("El DNI o el email a ingresar ya existe en la base de datos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+            '    Exit Try
+            'End If
 
             consulta = New SqlCommand("insert into usuarios (dni,nombre,apellido,usuario,contrasena,email,rol) values(" + p_dni + ",'" + p_nombre + "','" + p_apellido + "','" + p_usuario + "','" + p_contrasena + "','" + p_email + "','" + p_rol + "')", conx.conexion)
             consulta.ExecuteNonQuery()
@@ -129,8 +137,157 @@ Public Class usuarios
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-
+        conx.desconectarBD()
     End Sub
 
+    Public Function listarUsuarios() As List(Of usuarios)
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select * from usuarios"
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        Dim lista As New List(Of usuarios)
+        Dim usuario As usuarios
+        Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+            usuario = New usuarios
+
+            usuario.Nro_Usuario = lector.GetInt32(0)
+            usuario.Dni = lector.GetInt32(1)
+            usuario.Nombres = lector.GetString(2)
+            usuario.Apellidos = lector.GetString(3)
+            usuario.Usuario = lector.GetString(4)
+            usuario.Contraseña = lector.GetString(5)
+            usuario.Email = lector.GetString(6)
+            usuario.Cargo = lector.GetString(7)
+            usuario.Fecha_Alta = lector.GetDateTime(8)
+            'cliente.Fecha_Baja = Convert.ToString(lector.GetDateTime(7))
+            aux = Convert.ToInt32(lector.GetString(9))
+
+            If (aux = 0) Then
+                usuario.Activo = "Si"
+            Else
+                usuario.Activo = "No"
+            End If
+            lista.Add(usuario)
+
+        End While
+        conx.desconectarBD()
+        Return lista
+
+    End Function
+
+    Public Function listarUsuariosActivos() As List(Of usuarios)
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select * from usuarios where activo=0"
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        Dim lista As New List(Of usuarios)
+        Dim usuario As usuarios
+        Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+            usuario = New usuarios
+
+            usuario.Nro_Usuario = lector.GetInt32(0)
+            usuario.Dni = lector.GetInt32(1)
+            usuario.Nombres = lector.GetString(2)
+            usuario.Apellidos = lector.GetString(3)
+            usuario.Usuario = lector.GetString(4)
+            usuario.Contraseña = lector.GetString(5)
+            usuario.Email = lector.GetString(6)
+            usuario.Cargo = lector.GetString(7)
+            usuario.Fecha_Alta = lector.GetDateTime(8)
+            'cliente.Fecha_Baja = Convert.ToString(lector.GetDateTime(7))
+            aux = Convert.ToInt32(lector.GetString(9))
+
+            If (aux = 0) Then
+                usuario.Activo = "Si"
+            Else
+                usuario.Activo = "No"
+            End If
+            lista.Add(usuario)
+
+        End While
+        conx.desconectarBD()
+        Return lista
+
+    End Function
+
+    Public Function listarUsuariosInactivos() As List(Of usuarios)
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select * from usuarios where activo=1"
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        Dim lista As New List(Of usuarios)
+        Dim usuario As usuarios
+        Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+            usuario = New usuarios
+
+            usuario.Nro_Usuario = lector.GetInt32(0)
+            usuario.Dni = lector.GetInt32(1)
+            usuario.Nombres = lector.GetString(2)
+            usuario.Apellidos = lector.GetString(3)
+            usuario.Usuario = lector.GetString(4)
+            usuario.Contraseña = lector.GetString(5)
+            usuario.Email = lector.GetString(6)
+            usuario.Cargo = lector.GetString(7)
+            usuario.Fecha_Alta = lector.GetDateTime(8)
+            'cliente.Fecha_Baja = Convert.ToString(lector.GetDateTime(7))
+            aux = Convert.ToInt32(lector.GetString(9))
+
+            If (aux = 0) Then
+                usuario.Activo = "Si"
+            Else
+                usuario.Activo = "No"
+            End If
+            lista.Add(usuario)
+
+        End While
+        conx.desconectarBD()
+        Return lista
+
+    End Function
+
+    Public Function buscarUsuario(p_dni As Integer, p_email As String) As Boolean
+        Dim busqueda As Boolean = False
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select * from usuarios"
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        'Dim lista As New List(Of usuarios)
+        'Dim usuario As usuarios
+        'Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+            'usuario = New usuarios
+
+            'usuario.Nro_Usuario = lector.GetInt32(0)
+            'usuario.Dni = lector.GetInt32(1)
+            'usuario.Nombres = lector.GetString(2)
+            'usuario.Apellidos = lector.GetString(3)
+            'usuario.Usuario = lector.GetString(4)
+            'usuario.Contraseña = lector.GetString(5)
+            'usuario.Email = lector.GetString(6)
+            'usuario.Cargo = lector.GetString(7)
+            'usuario.Fecha_Alta = lector.GetDateTime(8)
+            ''cliente.Fecha_Baja = Convert.ToString(lector.GetDateTime(7))
+            'aux = Convert.ToInt32(lector.GetString(9))
+
+            If (p_dni = lector.GetInt32(1) Or p_email = lector.GetString(6)) Then
+                busqueda = True
+            End If
+            'lista.Add(usuario)
+
+        End While
+        conx.desconectarBD()
+        Return busqueda
+    End Function
 
 End Class

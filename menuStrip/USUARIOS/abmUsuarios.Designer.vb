@@ -24,6 +24,13 @@ Partial Class abmUsuarios
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abmUsuarios))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.rbtNoactivos = New System.Windows.Forms.RadioButton()
+        Me.rbtActivos = New System.Windows.Forms.RadioButton()
+        Me.rbtTodos = New System.Windows.Forms.RadioButton()
         Me.btn_eliminar = New System.Windows.Forms.Button()
         Me.btn_actualizar = New System.Windows.Forms.Button()
         Me.btn_agregar = New System.Windows.Forms.Button()
@@ -41,14 +48,23 @@ Partial Class abmUsuarios
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dtgUsuarios = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtgUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.btnLimpiar)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.rbtNoactivos)
+        Me.GroupBox1.Controls.Add(Me.rbtActivos)
+        Me.GroupBox1.Controls.Add(Me.rbtTodos)
         Me.GroupBox1.Controls.Add(Me.btn_eliminar)
         Me.GroupBox1.Controls.Add(Me.btn_actualizar)
         Me.GroupBox1.Controls.Add(Me.btn_agregar)
@@ -68,16 +84,106 @@ Partial Class abmUsuarios
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(1, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1078, 136)
+        Me.GroupBox1.Size = New System.Drawing.Size(1080, 174)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos para agregar/actualizar usuarios"
         '
+        'Label10
+        '
+        Me.Label10.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(637, 156)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(396, 15)
+        Me.Label10.TabIndex = 24
+        Me.Label10.Text = "*Para actualizar o eliminar, haga click en el DNI del usuario."
+        '
+        'Label9
+        '
+        Me.Label9.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(637, 136)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(431, 15)
+        Me.Label9.TabIndex = 23
+        Me.Label9.Text = "*Para agregar un cliente, deben estar cargados todos los campos."
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.Location = New System.Drawing.Point(493, 34)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(55, 51)
+        Me.btnLimpiar.TabIndex = 22
+        Me.btnLimpiar.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(790, 26)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(59, 20)
+        Me.Label5.TabIndex = 21
+        Me.Label5.Text = "Listar:"
+        '
+        'rbtNoactivos
+        '
+        Me.rbtNoactivos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.rbtNoactivos.AutoSize = True
+        Me.rbtNoactivos.Location = New System.Drawing.Point(991, 29)
+        Me.rbtNoactivos.Name = "rbtNoactivos"
+        Me.rbtNoactivos.Size = New System.Drawing.Size(77, 17)
+        Me.rbtNoactivos.TabIndex = 20
+        Me.rbtNoactivos.TabStop = True
+        Me.rbtNoactivos.Text = "No Activos"
+        Me.rbtNoactivos.UseVisualStyleBackColor = True
+        '
+        'rbtActivos
+        '
+        Me.rbtActivos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.rbtActivos.AutoSize = True
+        Me.rbtActivos.Location = New System.Drawing.Point(925, 29)
+        Me.rbtActivos.Name = "rbtActivos"
+        Me.rbtActivos.Size = New System.Drawing.Size(60, 17)
+        Me.rbtActivos.TabIndex = 19
+        Me.rbtActivos.TabStop = True
+        Me.rbtActivos.Text = "Activos"
+        Me.rbtActivos.UseVisualStyleBackColor = True
+        '
+        'rbtTodos
+        '
+        Me.rbtTodos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.rbtTodos.AutoSize = True
+        Me.rbtTodos.Location = New System.Drawing.Point(855, 29)
+        Me.rbtTodos.Name = "rbtTodos"
+        Me.rbtTodos.Size = New System.Drawing.Size(55, 17)
+        Me.rbtTodos.TabIndex = 18
+        Me.rbtTodos.TabStop = True
+        Me.rbtTodos.Text = "Todos"
+        Me.rbtTodos.UseVisualStyleBackColor = True
+        '
         'btn_eliminar
         '
+        Me.btn_eliminar.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn_eliminar.Image = CType(resources.GetObject("btn_eliminar.Image"), System.Drawing.Image)
         Me.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_eliminar.Location = New System.Drawing.Point(942, 80)
+        Me.btn_eliminar.Location = New System.Drawing.Point(942, 74)
         Me.btn_eliminar.Name = "btn_eliminar"
         Me.btn_eliminar.Size = New System.Drawing.Size(115, 50)
         Me.btn_eliminar.TabIndex = 17
@@ -87,9 +193,12 @@ Partial Class abmUsuarios
         '
         'btn_actualizar
         '
+        Me.btn_actualizar.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn_actualizar.Image = CType(resources.GetObject("btn_actualizar.Image"), System.Drawing.Image)
         Me.btn_actualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_actualizar.Location = New System.Drawing.Point(793, 80)
+        Me.btn_actualizar.Location = New System.Drawing.Point(793, 74)
         Me.btn_actualizar.Name = "btn_actualizar"
         Me.btn_actualizar.Size = New System.Drawing.Size(128, 50)
         Me.btn_actualizar.TabIndex = 16
@@ -99,9 +208,12 @@ Partial Class abmUsuarios
         '
         'btn_agregar
         '
+        Me.btn_agregar.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn_agregar.Image = CType(resources.GetObject("btn_agregar.Image"), System.Drawing.Image)
         Me.btn_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_agregar.Location = New System.Drawing.Point(655, 80)
+        Me.btn_agregar.Location = New System.Drawing.Point(655, 74)
         Me.btn_agregar.Name = "btn_agregar"
         Me.btn_agregar.Size = New System.Drawing.Size(116, 50)
         Me.btn_agregar.TabIndex = 15
@@ -111,6 +223,8 @@ Partial Class abmUsuarios
         '
         'Label8
         '
+        Me.Label8.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(243, 94)
         Me.Label8.Name = "Label8"
@@ -120,6 +234,8 @@ Partial Class abmUsuarios
         '
         'cmbCargo
         '
+        Me.cmbCargo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCargo.FormattingEnabled = True
         Me.cmbCargo.ImeMode = System.Windows.Forms.ImeMode.NoControl
@@ -131,6 +247,8 @@ Partial Class abmUsuarios
         '
         'txtContrasena
         '
+        Me.txtContrasena.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtContrasena.Location = New System.Drawing.Point(344, 110)
         Me.txtContrasena.Name = "txtContrasena"
         Me.txtContrasena.Size = New System.Drawing.Size(114, 20)
@@ -138,6 +256,8 @@ Partial Class abmUsuarios
         '
         'txtUsuario
         '
+        Me.txtUsuario.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtUsuario.Location = New System.Drawing.Point(205, 110)
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Size = New System.Drawing.Size(121, 20)
@@ -145,6 +265,8 @@ Partial Class abmUsuarios
         '
         'txtEmail
         '
+        Me.txtEmail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtEmail.Location = New System.Drawing.Point(6, 110)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(181, 20)
@@ -152,6 +274,8 @@ Partial Class abmUsuarios
         '
         'txtApellido
         '
+        Me.txtApellido.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtApellido.Location = New System.Drawing.Point(306, 50)
         Me.txtApellido.Name = "txtApellido"
         Me.txtApellido.Size = New System.Drawing.Size(166, 20)
@@ -159,6 +283,8 @@ Partial Class abmUsuarios
         '
         'txtNombre
         '
+        Me.txtNombre.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtNombre.Location = New System.Drawing.Point(128, 50)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(160, 20)
@@ -166,6 +292,8 @@ Partial Class abmUsuarios
         '
         'txtDni
         '
+        Me.txtDni.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtDni.Location = New System.Drawing.Point(11, 50)
         Me.txtDni.Name = "txtDni"
         Me.txtDni.Size = New System.Drawing.Size(100, 20)
@@ -173,6 +301,8 @@ Partial Class abmUsuarios
         '
         'Label7
         '
+        Me.Label7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(518, 93)
         Me.Label7.Name = "Label7"
@@ -182,6 +312,8 @@ Partial Class abmUsuarios
         '
         'Label6
         '
+        Me.Label6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(365, 94)
         Me.Label6.Name = "Label6"
@@ -191,6 +323,8 @@ Partial Class abmUsuarios
         '
         'Label4
         '
+        Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(72, 94)
         Me.Label4.Name = "Label4"
@@ -200,6 +334,8 @@ Partial Class abmUsuarios
         '
         'Label3
         '
+        Me.Label3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(356, 34)
         Me.Label3.Name = "Label3"
@@ -209,6 +345,8 @@ Partial Class abmUsuarios
         '
         'Label2
         '
+        Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(185, 34)
         Me.Label2.Name = "Label2"
@@ -218,6 +356,8 @@ Partial Class abmUsuarios
         '
         'Label1
         '
+        Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(44, 34)
         Me.Label1.Name = "Label1"
@@ -225,27 +365,31 @@ Partial Class abmUsuarios
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "DNI"
         '
-        'DataGridView1
+        'dtgUsuarios
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 224)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(240, 150)
-        Me.DataGridView1.TabIndex = 1
+        Me.dtgUsuarios.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dtgUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dtgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtgUsuarios.Location = New System.Drawing.Point(12, 183)
+        Me.dtgUsuarios.Name = "dtgUsuarios"
+        Me.dtgUsuarios.Size = New System.Drawing.Size(1058, 388)
+        Me.dtgUsuarios.TabIndex = 1
         '
         'abmUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1081, 450)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.ClientSize = New System.Drawing.Size(1082, 576)
+        Me.Controls.Add(Me.dtgUsuarios)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "abmUsuarios"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "USUARIOS"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtgUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -268,5 +412,12 @@ Partial Class abmUsuarios
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dtgUsuarios As DataGridView
+    Friend WithEvents Label5 As Label
+    Friend WithEvents rbtNoactivos As RadioButton
+    Friend WithEvents rbtActivos As RadioButton
+    Friend WithEvents rbtTodos As RadioButton
+    Friend WithEvents btnLimpiar As Button
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label9 As Label
 End Class

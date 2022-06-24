@@ -290,4 +290,18 @@ Public Class usuarios
         Return busqueda
     End Function
 
+    Public Sub actualizarUsuario(p_dni As String, p_nombre As String, p_apellido As String, p_usuario As String, p_contrasena As String, p_cargo As String)
+        Try
+            conx.conectarBD()
+
+            consulta = New SqlCommand("update usuarios set nombre='" + p_nombre + "',apellido='" + p_apellido + "',usuario='" + p_usuario + "', contrasena='" + p_contrasena + "', rol='" + p_cargo + "' where dni='" + p_dni + "'", conx.conexion)
+            consulta.ExecuteNonQuery()
+
+            conx.desconectarBD()
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+    End Sub
+
+
 End Class

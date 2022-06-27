@@ -56,14 +56,14 @@ Partial Class inicioSesion
         '
         'dtp_fechaSistema
         '
-        Me.dtp_fechaSistema.Enabled = False
+        Me.dtp_fechaSistema.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtp_fechaSistema.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtp_fechaSistema.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.dtp_fechaSistema.Location = New System.Drawing.Point(762, 12)
+        Me.dtp_fechaSistema.Location = New System.Drawing.Point(784, 12)
         Me.dtp_fechaSistema.MaxDate = New Date(2040, 12, 31, 0, 0, 0, 0)
         Me.dtp_fechaSistema.MinDate = New Date(2022, 6, 22, 0, 0, 0, 0)
         Me.dtp_fechaSistema.Name = "dtp_fechaSistema"
-        Me.dtp_fechaSistema.Size = New System.Drawing.Size(101, 20)
+        Me.dtp_fechaSistema.Size = New System.Drawing.Size(88, 20)
         Me.dtp_fechaSistema.TabIndex = 2
         Me.dtp_fechaSistema.Value = New Date(2022, 6, 22, 13, 16, 2, 0)
         '
@@ -160,7 +160,7 @@ Partial Class inicioSesion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Gainsboro
+        Me.BackColor = System.Drawing.Color.Silver
         Me.ClientSize = New System.Drawing.Size(884, 561)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label5)

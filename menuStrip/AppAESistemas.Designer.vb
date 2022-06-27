@@ -24,6 +24,9 @@ Partial Class AppAESistemas
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AppAESistemas))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.SALIR = New System.Windows.Forms.ToolStripMenuItem()
+        Me.dtp_fecha = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.GestionDeProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMDeProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionDeClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,8 +47,6 @@ Partial Class AppAESistemas
         Me.ClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SALIR = New System.Windows.Forms.ToolStripMenuItem()
-        Me.dtp_fecha = New System.Windows.Forms.DateTimePicker()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -54,9 +55,37 @@ Partial Class AppAESistemas
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.GestionDeClientesToolStripMenuItem, Me.GestionDeEmpleadosToolStripMenuItem, Me.GestionDeProveedoresToolStripMenuItem, Me.GestionDeVentasToolStripMenuItem, Me.GestionDeUsuariosToolStripMenuItem, Me.InformesToolStripMenuItem, Me.SALIR})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1009, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1085, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'SALIR
+        '
+        Me.SALIR.Image = Global.menuStrip.My.Resources.Resources.depositphotos_62939741_stock_photo_exit_icon
+        Me.SALIR.Name = "SALIR"
+        Me.SALIR.Size = New System.Drawing.Size(57, 20)
+        Me.SALIR.Text = "Salir"
+        '
+        'dtp_fecha
+        '
+        Me.dtp_fecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtp_fecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp_fecha.Location = New System.Drawing.Point(982, 30)
+        Me.dtp_fecha.Name = "dtp_fecha"
+        Me.dtp_fecha.Size = New System.Drawing.Size(91, 20)
+        Me.dtp_fecha.TabIndex = 0
+        Me.dtp_fecha.Value = New Date(2022, 6, 25, 20, 43, 31, 0)
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Stencil", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(227, 230)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(645, 114)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "AE Sistemas"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'GestionDeProductosToolStripMenuItem
         '
@@ -75,8 +104,9 @@ Partial Class AppAESistemas
         'GestionDeClientesToolStripMenuItem
         '
         Me.GestionDeClientesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AMBClientesToolStripMenuItem})
+        Me.GestionDeClientesToolStripMenuItem.Image = Global.menuStrip.My.Resources.Resources.cliente
         Me.GestionDeClientesToolStripMenuItem.Name = "GestionDeClientesToolStripMenuItem"
-        Me.GestionDeClientesToolStripMenuItem.Size = New System.Drawing.Size(118, 20)
+        Me.GestionDeClientesToolStripMenuItem.Size = New System.Drawing.Size(134, 20)
         Me.GestionDeClientesToolStripMenuItem.Text = "Gestion de clientes"
         '
         'AMBClientesToolStripMenuItem
@@ -88,8 +118,9 @@ Partial Class AppAESistemas
         'GestionDeEmpleadosToolStripMenuItem
         '
         Me.GestionDeEmpleadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMEmpleadosToolStripMenuItem})
+        Me.GestionDeEmpleadosToolStripMenuItem.Image = Global.menuStrip.My.Resources.Resources.empleado
         Me.GestionDeEmpleadosToolStripMenuItem.Name = "GestionDeEmpleadosToolStripMenuItem"
-        Me.GestionDeEmpleadosToolStripMenuItem.Size = New System.Drawing.Size(136, 20)
+        Me.GestionDeEmpleadosToolStripMenuItem.Size = New System.Drawing.Size(152, 20)
         Me.GestionDeEmpleadosToolStripMenuItem.Text = "Gestion de empleados"
         '
         'ABMEmpleadosToolStripMenuItem
@@ -101,8 +132,9 @@ Partial Class AppAESistemas
         'GestionDeProveedoresToolStripMenuItem
         '
         Me.GestionDeProveedoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMProveedoresToolStripMenuItem})
+        Me.GestionDeProveedoresToolStripMenuItem.Image = Global.menuStrip.My.Resources.Resources.provvedor
         Me.GestionDeProveedoresToolStripMenuItem.Name = "GestionDeProveedoresToolStripMenuItem"
-        Me.GestionDeProveedoresToolStripMenuItem.Size = New System.Drawing.Size(143, 20)
+        Me.GestionDeProveedoresToolStripMenuItem.Size = New System.Drawing.Size(159, 20)
         Me.GestionDeProveedoresToolStripMenuItem.Text = "Gestion de proveedores"
         '
         'ABMProveedoresToolStripMenuItem
@@ -114,8 +146,9 @@ Partial Class AppAESistemas
         'GestionDeVentasToolStripMenuItem
         '
         Me.GestionDeVentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMVentasToolStripMenuItem})
+        Me.GestionDeVentasToolStripMenuItem.Image = Global.menuStrip.My.Resources.Resources.ventas
         Me.GestionDeVentasToolStripMenuItem.Name = "GestionDeVentasToolStripMenuItem"
-        Me.GestionDeVentasToolStripMenuItem.Size = New System.Drawing.Size(112, 20)
+        Me.GestionDeVentasToolStripMenuItem.Size = New System.Drawing.Size(128, 20)
         Me.GestionDeVentasToolStripMenuItem.Text = "Gestion de ventas"
         '
         'ABMVentasToolStripMenuItem
@@ -127,8 +160,9 @@ Partial Class AppAESistemas
         'GestionDeUsuariosToolStripMenuItem
         '
         Me.GestionDeUsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMUsuariosToolStripMenuItem})
+        Me.GestionDeUsuariosToolStripMenuItem.Image = Global.menuStrip.My.Resources.Resources.images__1_
         Me.GestionDeUsuariosToolStripMenuItem.Name = "GestionDeUsuariosToolStripMenuItem"
-        Me.GestionDeUsuariosToolStripMenuItem.Size = New System.Drawing.Size(122, 20)
+        Me.GestionDeUsuariosToolStripMenuItem.Size = New System.Drawing.Size(138, 20)
         Me.GestionDeUsuariosToolStripMenuItem.Text = "Gestion de usuarios"
         '
         'ABMUsuariosToolStripMenuItem
@@ -140,15 +174,16 @@ Partial Class AppAESistemas
         'InformesToolStripMenuItem
         '
         Me.InformesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasToolStripMenuItem, Me.ClientesToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.ProveedoresToolStripMenuItem})
+        Me.InformesToolStripMenuItem.Image = Global.menuStrip.My.Resources.Resources.descarga
         Me.InformesToolStripMenuItem.Name = "InformesToolStripMenuItem"
-        Me.InformesToolStripMenuItem.Size = New System.Drawing.Size(66, 20)
+        Me.InformesToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
         Me.InformesToolStripMenuItem.Text = "Informes"
         '
         'VentasToolStripMenuItem
         '
         Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductomasVendidoToolStripMenuItem, Me.MejorClienteToolStripMenuItem, Me.VentasMensualesToolStripMenuItem})
         Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
-        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.VentasToolStripMenuItem.Text = "Ventas"
         '
         'ProductomasVendidoToolStripMenuItem
@@ -172,35 +207,20 @@ Partial Class AppAESistemas
         'ClientesToolStripMenuItem
         '
         Me.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
-        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ClientesToolStripMenuItem.Text = "Clientes"
         '
         'EmpleadosToolStripMenuItem
         '
         Me.EmpleadosToolStripMenuItem.Name = "EmpleadosToolStripMenuItem"
-        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.EmpleadosToolStripMenuItem.Text = "Empleados"
         '
         'ProveedoresToolStripMenuItem
         '
         Me.ProveedoresToolStripMenuItem.Name = "ProveedoresToolStripMenuItem"
-        Me.ProveedoresToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.ProveedoresToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ProveedoresToolStripMenuItem.Text = "Proveedores"
-        '
-        'SALIR
-        '
-        Me.SALIR.Name = "SALIR"
-        Me.SALIR.Size = New System.Drawing.Size(41, 20)
-        Me.SALIR.Text = "Salir"
-        '
-        'dtp_fecha
-        '
-        Me.dtp_fecha.Enabled = False
-        Me.dtp_fecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp_fecha.Location = New System.Drawing.Point(918, 36)
-        Me.dtp_fecha.Name = "dtp_fecha"
-        Me.dtp_fecha.Size = New System.Drawing.Size(91, 20)
-        Me.dtp_fecha.TabIndex = 1
         '
         'AppAESistemas
         '
@@ -208,10 +228,10 @@ Partial Class AppAESistemas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.AutoSize = True
-        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(1009, 561)
+        Me.BackColor = System.Drawing.Color.Silver
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ClientSize = New System.Drawing.Size(1085, 624)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dtp_fecha)
         Me.Controls.Add(Me.MenuStrip1)
         Me.DoubleBuffered = True
@@ -250,4 +270,5 @@ Partial Class AppAESistemas
     Friend WithEvents EmpleadosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProveedoresToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents dtp_fecha As DateTimePicker
+    Friend WithEvents Label1 As Label
 End Class

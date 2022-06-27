@@ -4,12 +4,10 @@
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SALIR.Click
-        Dim salir As MsgBoxResult
-        salir = MsgBox("¿Esta seguro que desea salir?", MsgBoxStyle.OkCancel, "SALIR")
-        If (salir = MsgBoxResult.Ok) Then
+        Dim resp As DialogResult
+        resp = MessageBox.Show("¿Esta seguro que desea salir?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+        If (resp = DialogResult.Yes) Then
             Me.Close()
-
-
         End If
         inicioSesion.Activate()
         inicioSesion.txtUsuario.Clear()

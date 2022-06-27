@@ -1,6 +1,24 @@
 ﻿Public Class inicioSesion
+    Dim user As New usuarios()
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        AppAESistemas.ShowDialog()
+        Dim encontrado As Boolean = False
+        Dim usuario As String = txtUsuario.Text
+        Dim contrasena As String = txtContrasena.Text
+
+        If (usuario = "" Or contrasena = "") Then
+            MessageBox.Show("¡Por favor ingrese usuario y contraseña!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        encontrado = user.inicioSesion(usuario, contrasena)
+
+        If (encontrado = True) Then
+            AppAESistemas.ShowDialog()
+        Else
+            MessageBox.Show("¡Usuario o contraseña incorrectos!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+        End If
+
+
 
     End Sub
 
@@ -19,7 +37,8 @@
     End Sub
 
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-        MsgBox("Hemos mandado un mje a tu correo.", MsgBoxStyle.Exclamation)
+        Dim correo As String
+        correo = InputBox("Por favor, ingrese su correo electronico para recibir su contraseña")
     End Sub
 
     Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click

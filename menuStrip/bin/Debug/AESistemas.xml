@@ -22,7 +22,47 @@ AESistemas
   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
 </summary>
 </member>
+<member name="P:menuStrip.My.Resources.Resources.cliente">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:menuStrip.My.Resources.Resources.clientes">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:menuStrip.My.Resources.Resources.depositphotos_62939741_stock_photo_exit_icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:menuStrip.My.Resources.Resources.descarga">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:menuStrip.My.Resources.Resources.descarga__1__1">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:menuStrip.My.Resources.Resources.empleado">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:menuStrip.My.Resources.Resources.escritorio">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:menuStrip.My.Resources.Resources.icono_producto">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:menuStrip.My.Resources.Resources.images__1_">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
@@ -48,6 +88,21 @@ AESistemas
 </summary>
 </member>
 <member name="P:menuStrip.My.Resources.Resources.INGRESAR4">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:menuStrip.My.Resources.Resources.provvedor">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:menuStrip.My.Resources.Resources.vector_find_icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:menuStrip.My.Resources.Resources.ventas">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>

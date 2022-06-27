@@ -29,7 +29,7 @@
     <ProductName>AE Sistema</ProductName>
     <PublisherName>Adrian Escalante</PublisherName>
     <SuiteName>AE Sistemas</SuiteName>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -259,6 +259,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icono-principal.ico" />
+    <None Include="Resources\vector-find-icon.jpg" />
+    <None Include="Resources\depositphotos_62939741-stock-photo-exit-icon.jpg" />
+    <None Include="Resources\descarga.jpg" />
+    <None Include="Resources\images %281%29.png" />
+    <None Include="Resources\ventas.ico" />
+    <None Include="Resources\descarga-_1__1.ico" />
+    <None Include="Resources\escritorio.jpg" />
+    <None Include="Resources\provvedor.ico" />
+    <None Include="Resources\empleado.ico" />
+    <None Include="Resources\cliente.ico" />
+    <None Include="Resources\clientes.ico" />
     <None Include="Resources\INGRESAR.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

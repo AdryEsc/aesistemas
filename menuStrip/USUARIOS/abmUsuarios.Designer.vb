@@ -24,14 +24,20 @@ Partial Class abmUsuarios
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abmUsuarios))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.txtBusqueda = New System.Windows.Forms.TextBox()
         Me.fechaActual = New System.Windows.Forms.DateTimePicker()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.rbtNoactivos = New System.Windows.Forms.RadioButton()
         Me.rbtActivos = New System.Windows.Forms.RadioButton()
         Me.rbtTodos = New System.Windows.Forms.RadioButton()
+        Me.btn_eliminar = New System.Windows.Forms.Button()
+        Me.btn_actualizar = New System.Windows.Forms.Button()
+        Me.btn_agregar = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cmbCargo = New System.Windows.Forms.ComboBox()
         Me.txtContrasena = New System.Windows.Forms.TextBox()
@@ -47,12 +53,6 @@ Partial Class abmUsuarios
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtgUsuarios = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.btnLimpiar = New System.Windows.Forms.Button()
-        Me.btn_eliminar = New System.Windows.Forms.Button()
-        Me.btn_actualizar = New System.Windows.Forms.Button()
-        Me.btn_agregar = New System.Windows.Forms.Button()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtgUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -97,6 +97,25 @@ Partial Class abmUsuarios
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos para agregar/actualizar usuarios"
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(273, 19)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(339, 15)
+        Me.Label11.TabIndex = 28
+        Me.Label11.Text = "Ingrese iniciales del nombre para busqueda rapida:"
+        '
+        'Button1
+        '
+        Me.Button1.Image = Global.menuStrip.My.Resources.Resources.vector_find_icon
+        Me.Button1.Location = New System.Drawing.Point(724, 12)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(32, 33)
+        Me.Button1.TabIndex = 27
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'txtBusqueda
         '
         Me.txtBusqueda.Location = New System.Drawing.Point(618, 19)
@@ -133,6 +152,15 @@ Partial Class abmUsuarios
         Me.Label9.Size = New System.Drawing.Size(431, 15)
         Me.Label9.TabIndex = 23
         Me.Label9.Text = "*Para agregar un cliente, deben estar cargados todos los campos."
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.Location = New System.Drawing.Point(483, 72)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(55, 51)
+        Me.btnLimpiar.TabIndex = 22
+        Me.btnLimpiar.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -180,6 +208,45 @@ Partial Class abmUsuarios
         Me.rbtTodos.TabStop = True
         Me.rbtTodos.Text = "Todos"
         Me.rbtTodos.UseVisualStyleBackColor = True
+        '
+        'btn_eliminar
+        '
+        Me.btn_eliminar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_eliminar.Image = CType(resources.GetObject("btn_eliminar.Image"), System.Drawing.Image)
+        Me.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_eliminar.Location = New System.Drawing.Point(942, 90)
+        Me.btn_eliminar.Name = "btn_eliminar"
+        Me.btn_eliminar.Size = New System.Drawing.Size(115, 50)
+        Me.btn_eliminar.TabIndex = 17
+        Me.btn_eliminar.Text = "ELIMINAR"
+        Me.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_eliminar.UseVisualStyleBackColor = True
+        '
+        'btn_actualizar
+        '
+        Me.btn_actualizar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_actualizar.Image = CType(resources.GetObject("btn_actualizar.Image"), System.Drawing.Image)
+        Me.btn_actualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_actualizar.Location = New System.Drawing.Point(794, 90)
+        Me.btn_actualizar.Name = "btn_actualizar"
+        Me.btn_actualizar.Size = New System.Drawing.Size(128, 50)
+        Me.btn_actualizar.TabIndex = 16
+        Me.btn_actualizar.Text = "ACTUALIZAR"
+        Me.btn_actualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_actualizar.UseVisualStyleBackColor = True
+        '
+        'btn_agregar
+        '
+        Me.btn_agregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_agregar.Image = CType(resources.GetObject("btn_agregar.Image"), System.Drawing.Image)
+        Me.btn_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_agregar.Location = New System.Drawing.Point(655, 90)
+        Me.btn_agregar.Name = "btn_agregar"
+        Me.btn_agregar.Size = New System.Drawing.Size(116, 50)
+        Me.btn_agregar.TabIndex = 15
+        Me.btn_agregar.Text = "AGREGAR"
+        Me.btn_agregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_agregar.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -308,73 +375,6 @@ Partial Class abmUsuarios
         Me.dtgUsuarios.Name = "dtgUsuarios"
         Me.dtgUsuarios.Size = New System.Drawing.Size(1058, 367)
         Me.dtgUsuarios.TabIndex = 1
-        '
-        'Button1
-        '
-        Me.Button1.Image = Global.menuStrip.My.Resources.Resources.vector_find_icon
-        Me.Button1.Location = New System.Drawing.Point(724, 12)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(32, 33)
-        Me.Button1.TabIndex = 27
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'btnLimpiar
-        '
-        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
-        Me.btnLimpiar.Location = New System.Drawing.Point(483, 72)
-        Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(55, 51)
-        Me.btnLimpiar.TabIndex = 22
-        Me.btnLimpiar.UseVisualStyleBackColor = True
-        '
-        'btn_eliminar
-        '
-        Me.btn_eliminar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_eliminar.Image = CType(resources.GetObject("btn_eliminar.Image"), System.Drawing.Image)
-        Me.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_eliminar.Location = New System.Drawing.Point(942, 90)
-        Me.btn_eliminar.Name = "btn_eliminar"
-        Me.btn_eliminar.Size = New System.Drawing.Size(115, 50)
-        Me.btn_eliminar.TabIndex = 17
-        Me.btn_eliminar.Text = "ELIMINAR"
-        Me.btn_eliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_eliminar.UseVisualStyleBackColor = True
-        '
-        'btn_actualizar
-        '
-        Me.btn_actualizar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_actualizar.Image = CType(resources.GetObject("btn_actualizar.Image"), System.Drawing.Image)
-        Me.btn_actualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_actualizar.Location = New System.Drawing.Point(794, 90)
-        Me.btn_actualizar.Name = "btn_actualizar"
-        Me.btn_actualizar.Size = New System.Drawing.Size(128, 50)
-        Me.btn_actualizar.TabIndex = 16
-        Me.btn_actualizar.Text = "ACTUALIZAR"
-        Me.btn_actualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_actualizar.UseVisualStyleBackColor = True
-        '
-        'btn_agregar
-        '
-        Me.btn_agregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_agregar.Image = CType(resources.GetObject("btn_agregar.Image"), System.Drawing.Image)
-        Me.btn_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_agregar.Location = New System.Drawing.Point(655, 90)
-        Me.btn_agregar.Name = "btn_agregar"
-        Me.btn_agregar.Size = New System.Drawing.Size(116, 50)
-        Me.btn_agregar.TabIndex = 15
-        Me.btn_agregar.Text = "AGREGAR"
-        Me.btn_agregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_agregar.UseVisualStyleBackColor = True
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(273, 19)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(339, 15)
-        Me.Label11.TabIndex = 28
-        Me.Label11.Text = "Ingrese iniciales del nombre para busqueda rapida:"
         '
         'abmUsuarios
         '

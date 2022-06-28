@@ -29,7 +29,7 @@
     <ProductName>AE Sistema</ProductName>
     <PublisherName>Adrian Escalante</PublisherName>
     <SuiteName>AE Sistemas</SuiteName>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>9</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -124,10 +124,11 @@
     <Compile Include="CLIENTES\abmClientes.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EMPLEADOS\abmEmpleados.Designer.vb">
-      <DependentUpon>abmEmpleados.vb</DependentUpon>
+    <Compile Include="CLIENTES\clientes.vb" />
+    <Compile Include="EMPLEADO\AppAESistemasEmp.Designer.vb">
+      <DependentUpon>AppAESistemasEmp.vb</DependentUpon>
     </Compile>
-    <Compile Include="EMPLEADOS\abmEmpleados.vb">
+    <Compile Include="EMPLEADO\AppAESistemasEmp.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MODULOS\soloLetras.vb" />
@@ -198,8 +199,8 @@
     <EmbeddedResource Include="CLIENTES\abmClientes.resx">
       <DependentUpon>abmClientes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EMPLEADOS\abmEmpleados.resx">
-      <DependentUpon>abmEmpleados.vb</DependentUpon>
+    <EmbeddedResource Include="EMPLEADO\AppAESistemasEmp.resx">
+      <DependentUpon>AppAESistemasEmp.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -259,6 +260,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icono-principal.ico" />
+    <None Include="Resources\imagen 11.jpg" />
+    <None Include="Resources\imagen 8.jpg" />
+    <None Include="Resources\imagen 3.png" />
+    <None Include="Resources\imagen 6.jpg" />
+    <None Include="Resources\imagen 4.png" />
+    <None Include="Resources\imagen 2.jpg" />
+    <None Include="Resources\imagen 1.jpg" />
     <None Include="Resources\vector-find-icon.jpg" />
     <None Include="Resources\depositphotos_62939741-stock-photo-exit-icon.jpg" />
     <None Include="Resources\descarga.jpg" />
@@ -272,5 +280,6 @@
     <None Include="Resources\clientes.ico" />
     <None Include="Resources\INGRESAR.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

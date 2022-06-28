@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <startup>
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+    </startup>
+
+  <connectionStrings>
+    <add name="conexionBaseDatos"
+         connectionString="Data Source=COVID\SQLEXPRESS;Initial Catalog=AESistemas;Persist Security Info=True;User ID=sa;Password=Adry-49686"
+         providerName="System.Data.SqlCliente"/>
+  </connectionStrings>
+
+
+  <!--<connectionStrings>
+    <add name="conexionBaseDatos" 
+         connectionString="Data Source=192.168.1.50\SQLEXPRESS; Initial Catalog=AESistemas;Persist Security Info=True;User ID=sa;Password=Adry-49686" 
+         providerName="System.Data.SqlCliente"/>
+  </connectionStrings>-->
+  
+</configuration>

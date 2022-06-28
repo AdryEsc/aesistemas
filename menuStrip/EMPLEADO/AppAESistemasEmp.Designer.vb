@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class AppAESistemas
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class AppAESistemasEmp
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,22 +20,18 @@ Partial Class AppAESistemas
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AppAESistemas))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AppAESistemasEmp))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.GestionDeProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMDeProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionDeClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AMBClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GestionDeEmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ABMEmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionDeProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GestionDeVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GestionDeUsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ABMUsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InformesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProductomasVendidoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,7 +60,7 @@ Partial Class AppAESistemas
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.GestionDeClientesToolStripMenuItem, Me.GestionDeEmpleadosToolStripMenuItem, Me.GestionDeProveedoresToolStripMenuItem, Me.GestionDeVentasToolStripMenuItem, Me.GestionDeUsuariosToolStripMenuItem, Me.InformesToolStripMenuItem, Me.SALIR})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GestionDeProductosToolStripMenuItem, Me.GestionDeClientesToolStripMenuItem, Me.GestionDeProveedoresToolStripMenuItem, Me.GestionDeVentasToolStripMenuItem, Me.InformesToolStripMenuItem, Me.SALIR})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1121, 24)
@@ -99,20 +95,6 @@ Partial Class AppAESistemas
         Me.AMBClientesToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.AMBClientesToolStripMenuItem.Text = "AMB Clientes"
         '
-        'GestionDeEmpleadosToolStripMenuItem
-        '
-        Me.GestionDeEmpleadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMEmpleadosToolStripMenuItem})
-        Me.GestionDeEmpleadosToolStripMenuItem.Image = Global.menuStrip.My.Resources.Resources.empleado
-        Me.GestionDeEmpleadosToolStripMenuItem.Name = "GestionDeEmpleadosToolStripMenuItem"
-        Me.GestionDeEmpleadosToolStripMenuItem.Size = New System.Drawing.Size(152, 20)
-        Me.GestionDeEmpleadosToolStripMenuItem.Text = "Gestion de empleados"
-        '
-        'ABMEmpleadosToolStripMenuItem
-        '
-        Me.ABMEmpleadosToolStripMenuItem.Name = "ABMEmpleadosToolStripMenuItem"
-        Me.ABMEmpleadosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ABMEmpleadosToolStripMenuItem.Text = "ABM Empleados"
-        '
         'GestionDeProveedoresToolStripMenuItem
         '
         Me.GestionDeProveedoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMProveedoresToolStripMenuItem})
@@ -124,7 +106,7 @@ Partial Class AppAESistemas
         'ABMProveedoresToolStripMenuItem
         '
         Me.ABMProveedoresToolStripMenuItem.Name = "ABMProveedoresToolStripMenuItem"
-        Me.ABMProveedoresToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.ABMProveedoresToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ABMProveedoresToolStripMenuItem.Text = "ABM Proveedores"
         '
         'GestionDeVentasToolStripMenuItem
@@ -141,20 +123,6 @@ Partial Class AppAESistemas
         Me.ABMVentasToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
         Me.ABMVentasToolStripMenuItem.Text = "ABM Ventas"
         '
-        'GestionDeUsuariosToolStripMenuItem
-        '
-        Me.GestionDeUsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ABMUsuariosToolStripMenuItem})
-        Me.GestionDeUsuariosToolStripMenuItem.Image = Global.menuStrip.My.Resources.Resources.images__1_
-        Me.GestionDeUsuariosToolStripMenuItem.Name = "GestionDeUsuariosToolStripMenuItem"
-        Me.GestionDeUsuariosToolStripMenuItem.Size = New System.Drawing.Size(138, 20)
-        Me.GestionDeUsuariosToolStripMenuItem.Text = "Gestion de usuarios"
-        '
-        'ABMUsuariosToolStripMenuItem
-        '
-        Me.ABMUsuariosToolStripMenuItem.Name = "ABMUsuariosToolStripMenuItem"
-        Me.ABMUsuariosToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
-        Me.ABMUsuariosToolStripMenuItem.Text = "ABM Usuarios"
-        '
         'InformesToolStripMenuItem
         '
         Me.InformesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasToolStripMenuItem, Me.ClientesToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.ProveedoresToolStripMenuItem})
@@ -167,7 +135,7 @@ Partial Class AppAESistemas
         '
         Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductomasVendidoToolStripMenuItem, Me.MejorClienteToolStripMenuItem, Me.VentasMensualesToolStripMenuItem})
         Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
-        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.VentasToolStripMenuItem.Text = "Ventas"
         '
         'ProductomasVendidoToolStripMenuItem
@@ -191,19 +159,19 @@ Partial Class AppAESistemas
         'ClientesToolStripMenuItem
         '
         Me.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
-        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ClientesToolStripMenuItem.Text = "Clientes"
         '
         'EmpleadosToolStripMenuItem
         '
         Me.EmpleadosToolStripMenuItem.Name = "EmpleadosToolStripMenuItem"
-        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.EmpleadosToolStripMenuItem.Text = "Empleados"
         '
         'ProveedoresToolStripMenuItem
         '
         Me.ProveedoresToolStripMenuItem.Name = "ProveedoresToolStripMenuItem"
-        Me.ProveedoresToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.ProveedoresToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ProveedoresToolStripMenuItem.Text = "Proveedores"
         '
         'SALIR
@@ -296,7 +264,7 @@ Partial Class AppAESistemas
         Me.PictureBox4.TabIndex = 5
         Me.PictureBox4.TabStop = False
         '
-        'AppAESistemas
+        'AppAESistemasEmp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -317,7 +285,7 @@ Partial Class AppAESistemas
         Me.DoubleBuffered = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Name = "AppAESistemas"
+        Me.Name = "AppAESistemasEmp"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AE SISTEMAS"
         Me.MenuStrip1.ResumeLayout(False)
@@ -337,14 +305,10 @@ Partial Class AppAESistemas
     Friend WithEvents GestionDeProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMDeProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GestionDeClientesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents GestionDeEmpleadosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GestionDeVentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InformesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents GestionDeUsuariosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SALIR As ToolStripMenuItem
     Friend WithEvents AMBClientesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ABMEmpleadosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ABMUsuariosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMVentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GestionDeProveedoresToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMProveedoresToolStripMenuItem As ToolStripMenuItem

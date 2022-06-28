@@ -1,4 +1,4 @@
-﻿Public Class AppAESistemas
+﻿Public Class AppAESistemasEmp
     Private Sub ABMDeProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMDeProductosToolStripMenuItem.Click
         abmProductos.ShowDialog()
     End Sub
@@ -19,11 +19,11 @@
         abmClientes.ShowDialog()
     End Sub
 
-    Private Sub ABMEmpleadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMEmpleadosToolStripMenuItem.Click
+    Private Sub ABMEmpleadosToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub ABMUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMUsuariosToolStripMenuItem.Click
+    Private Sub ABMUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs)
         abmClientes.ShowDialog()
     End Sub
 
@@ -43,9 +43,5 @@
         dtp_fecha.ShowUpDown = False
 
         inicioSesion.Refresh()
-    End Sub
-
-    Private Sub GestionDeEmpleadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionDeEmpleadosToolStripMenuItem.Click
-
     End Sub
 End Class

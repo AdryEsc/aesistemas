@@ -62,16 +62,16 @@
         txtDni.Enabled = True
         txtEmail.Enabled = True
 
-        dtgUsuarios.Columns(0).Width = 70
-        dtgUsuarios.Columns(1).Width = 70
-        dtgUsuarios.Columns(2).Width = 150
-        dtgUsuarios.Columns(3).Width = 150
-        dtgUsuarios.Columns(4).Width = 100
-        dtgUsuarios.Columns(5).Width = 100
-        dtgUsuarios.Columns(6).Width = 170
-        dtgUsuarios.Columns(7).Width = 80
-        dtgUsuarios.Columns(8).Width = 80
-        dtgUsuarios.Columns(9).Width = 50
+        'dtgUsuarios.Columns(0).Width = 70
+        'dtgUsuarios.Columns(1).Width = 70
+        'dtgUsuarios.Columns(2).Width = 150
+        'dtgUsuarios.Columns(3).Width = 150
+        'dtgUsuarios.Columns(4).Width = 100
+        'dtgUsuarios.Columns(5).Width = 100
+        'dtgUsuarios.Columns(6).Width = 170
+        'dtgUsuarios.Columns(7).Width = 80
+        'dtgUsuarios.Columns(8).Width = 80
+        'dtgUsuarios.Columns(9).Width = 50
     End Sub
 
     Private Sub dtgUsuarios_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgUsuarios.CellContentClick

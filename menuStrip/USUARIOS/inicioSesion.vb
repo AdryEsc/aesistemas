@@ -2,6 +2,7 @@
     Dim user As New usuarios()
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim encontrado As Boolean = False
+        Dim rol As String = ""
         Dim usuario As String = txtUsuario.Text
         Dim contrasena As String = txtContrasena.Text
 
@@ -13,9 +14,19 @@
         encontrado = user.inicioSesion(usuario, contrasena)
 
         If (encontrado = True) Then
-            AppAESistemas.ShowDialog()
+            rol = user.obtenerRol(usuario, contrasena)
+            If (rol = "Administrador") Then
+                AppAESistemas.ShowDialog()
+                txtUsuario.Clear()
+                txtContrasena.Clear()
+            Else
+
+                AppAESistemasEmp.ShowDialog()
+                txtUsuario.Clear()
+                txtContrasena.Clear()
+            End If
         Else
-            MessageBox.Show("¡Usuario o contraseña incorrectos!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+                MessageBox.Show("¡Usuario o contraseña incorrectos!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
         End If
 
 
@@ -29,11 +40,7 @@
         dtp_fechaSistema.Value = DateTime.Now
         dtp_fechaSistema.ShowUpDown = False
 
-        'dtpFechaIngreso.Refresh();
-        '    dtpFechaIngreso.Format = DateTimePickerFormat.Custom;
-        '    dtpFechaIngreso.CustomFormat = "dd/MM/yy HH:mm:ss tt";
-        '    dtpFechaIngreso.Value = DateTime.Now;
-        '    dtpFechaIngreso.ShowUpDown = False;
+
     End Sub
 
     Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click

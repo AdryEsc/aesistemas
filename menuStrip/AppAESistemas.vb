@@ -1,6 +1,6 @@
 ﻿Public Class AppAESistemas
     Private Sub ABMDeProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMDeProductosToolStripMenuItem.Click
-        abmProductos.ShowDialog()
+
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SALIR.Click
@@ -24,11 +24,11 @@
     End Sub
 
     Private Sub ABMUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMUsuariosToolStripMenuItem.Click
-        abmClientes.ShowDialog()
+        abmUsuarios.ShowDialog()
     End Sub
 
     Private Sub ABMVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMVentasToolStripMenuItem.Click
-        abmVentas.ShowDialog()
+
     End Sub
 
     Private Sub ABMProveedoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMProveedoresToolStripMenuItem.Click
@@ -46,6 +46,10 @@
     End Sub
 
     Private Sub GestionDeEmpleadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionDeEmpleadosToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub GestionDeUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionDeUsuariosToolStripMenuItem.Click
 
     End Sub
 End Class

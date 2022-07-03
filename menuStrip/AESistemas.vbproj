@@ -125,13 +125,14 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CLIENTES\clientes.vb" />
-    <Compile Include="EMPLEADO\AppAESistemasEmp.Designer.vb">
+    <Compile Include="EMPLEADOS\AppAESistemasEmp.Designer.vb">
       <DependentUpon>AppAESistemasEmp.vb</DependentUpon>
     </Compile>
-    <Compile Include="EMPLEADO\AppAESistemasEmp.vb">
+    <Compile Include="EMPLEADOS\AppAESistemasEmp.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MODULOS\soloLetras.vb" />
+    <Compile Include="MODULOS\soloParaCuit-Cuil-telefono.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -153,12 +154,13 @@
     <Compile Include="PRODUCTOS\abmProductos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PROVEEDORES\abmProveedores.Designer.vb">
+    <Compile Include="PROVEEDOR\abmProveedores.Designer.vb">
       <DependentUpon>abmProveedores.vb</DependentUpon>
     </Compile>
-    <Compile Include="PROVEEDORES\abmProveedores.vb">
+    <Compile Include="PROVEEDOR\abmProveedores.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PROVEEDOR\proveedores.vb" />
     <Compile Include="prueba.Designer.vb">
       <DependentUpon>prueba.vb</DependentUpon>
     </Compile>
@@ -199,7 +201,7 @@
     <EmbeddedResource Include="CLIENTES\abmClientes.resx">
       <DependentUpon>abmClientes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EMPLEADO\AppAESistemasEmp.resx">
+    <EmbeddedResource Include="EMPLEADOS\AppAESistemasEmp.resx">
       <DependentUpon>AppAESistemasEmp.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -211,7 +213,7 @@
     <EmbeddedResource Include="PRODUCTOS\abmProductos.resx">
       <DependentUpon>abmProductos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PROVEEDORES\abmProveedores.resx">
+    <EmbeddedResource Include="PROVEEDOR\abmProveedores.resx">
       <DependentUpon>abmProveedores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="prueba.resx">

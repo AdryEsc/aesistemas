@@ -24,11 +24,11 @@
     End Sub
 
     Private Sub ABMUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        abmClientes.ShowDialog()
+
     End Sub
 
     Private Sub ABMVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMVentasToolStripMenuItem.Click
-        abmVentas.ShowDialog()
+
     End Sub
 
     Private Sub ABMProveedoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMProveedoresToolStripMenuItem.Click
@@ -43,5 +43,9 @@
         dtp_fecha.ShowUpDown = False
 
         inicioSesion.Refresh()
+    End Sub
+
+    Private Sub GestionDeProveedoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionDeProveedoresToolStripMenuItem.Click
+
     End Sub
 End Class

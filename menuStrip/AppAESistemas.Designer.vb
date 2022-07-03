@@ -110,7 +110,7 @@ Partial Class AppAESistemas
         'ABMEmpleadosToolStripMenuItem
         '
         Me.ABMEmpleadosToolStripMenuItem.Name = "ABMEmpleadosToolStripMenuItem"
-        Me.ABMEmpleadosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ABMEmpleadosToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.ABMEmpleadosToolStripMenuItem.Text = "ABM Empleados"
         '
         'GestionDeProveedoresToolStripMenuItem
@@ -152,7 +152,7 @@ Partial Class AppAESistemas
         'ABMUsuariosToolStripMenuItem
         '
         Me.ABMUsuariosToolStripMenuItem.Name = "ABMUsuariosToolStripMenuItem"
-        Me.ABMUsuariosToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
+        Me.ABMUsuariosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ABMUsuariosToolStripMenuItem.Text = "ABM Usuarios"
         '
         'InformesToolStripMenuItem

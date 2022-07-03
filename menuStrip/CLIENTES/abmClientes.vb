@@ -5,8 +5,7 @@
     Private Sub abmUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtDni.TabIndex = 0
         rbtTodos.Checked = True
-        dtgCLientes.DataSource = cliente.listarClientes()
-        optimizar()
+
     End Sub
 
     Private Sub txtDni_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDni.KeyPress
@@ -61,14 +60,14 @@
         txtDni.Enabled = True
         txtEmail.Enabled = True
 
-        'dtgCLientes.Columns(0).Width = 70
-        'dtgCLientes.Columns(1).Width = 70
-        'dtgCLientes.Columns(2).Width = 150
-        'dtgCLientes.Columns(3).Width = 150
-        'dtgCLientes.Columns(4).Width = 170
-        'dtgCLientes.Columns(5).Width = 80
-        'dtgCLientes.Columns(6).Width = 80
-        'dtgCLientes.Columns(7).Width = 80
+        dtgCLientes.Columns(0).Width = 70
+        dtgCLientes.Columns(1).Width = 70
+        dtgCLientes.Columns(2).Width = 150
+        dtgCLientes.Columns(3).Width = 150
+        dtgCLientes.Columns(4).Width = 170
+        dtgCLientes.Columns(5).Width = 80
+        dtgCLientes.Columns(6).Width = 80
+        dtgCLientes.Columns(7).Width = 80
 
     End Sub
 

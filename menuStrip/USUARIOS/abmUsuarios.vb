@@ -1,50 +1,82 @@
-﻿Public Class abmUsuarios
+﻿Imports System.Data
+Imports System.Data.SqlClient
+Imports System.IO
+Imports System.Configuration
+
+Public Class abmUsuarios
     Dim user As New usuarios()
     Dim resp As DialogResult
+    Dim strComando As String
+    Dim conexion As String
+    Dim adapter As SqlDataAdapter
+    Dim data As DataSet
+
+    Dim aux_cargo As Integer
 
     Private Sub abmUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txtDni.TabIndex = 0
-        rbtTodos.Checked = True
+        'txtDni.TabIndex = 0
+        'rbtTodos.Checked = True
+        dtgUsuarios.DataSource = vbNull
         dtgUsuarios.DataSource = user.listarUsuarios()
-        optimizar()
+
+        conexion = "Data Source=COVID\SQLEXPRESS;Initial Catalog=AESistemas;Persist Security Info=True;User ID=sa;Password=Adry-49686"
+        strComando = "Select * from cargos"
+        adapter = New System.Data.SqlClient.SqlDataAdapter(strComando, conexion)
+        data = New DataSet
+        adapter.Fill(data)
+        cmbCargos.DataSource = data.Tables(0)
+        cmbCargos.DisplayMember = "nombre"
+        cmbCargos.ValueMember = "idCargo"
+
+        'Dim value As Object = cmbCargos.SelectedValue
+
+        'If (value IsNot Nothing) Then
+        '    aux_cargo = Convert.ToInt32(value)
+        'End If
+
+        'MsgBox(aux_cargo)
+
     End Sub
 
-    Private Sub txtDni_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDni.KeyPress
+    Private Sub txtDni_KeyPress(sender As Object, e As KeyPressEventArgs)
         soloNumerosTxt(e)
     End Sub
 
-    Private Sub txtNombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNombre.KeyPress
+    Private Sub txtNombre_KeyPress(sender As Object, e As KeyPressEventArgs)
         soloLetrasTxt(e)
     End Sub
 
-    Private Sub txtApellido_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtApellido.KeyPress
+    Private Sub txtApellido_KeyPress(sender As Object, e As KeyPressEventArgs)
         soloLetrasTxt(e)
     End Sub
 
     Private Sub btn_agregar_Click(sender As Object, e As EventArgs) Handles btn_agregar.Click
-        Dim dni As String = txtDni.Text
-        Dim nombre As String = txtNombre.Text
-        Dim apellido As String = txtApellido.Text
-        Dim email As String = txtEmail.Text
+        'Dim dni As String = txtDni.Text
+        'Dim nombre As String = txtNombre.Text
+        'Dim apellido As String = txtApellido.Text
+        'Dim email As String = txtEmail.Text
         Dim usuario As String = txtUsuario.Text
         Dim contrasena As String = txtContrasena.Text
-        Dim cargo As String = cmbCargo.SelectedItem
+        Dim value As Object = cmbCargos.SelectedValue
+        If (value IsNot Nothing) Then
+            aux_cargo = Convert.ToInt32(value)
+        End If
 
-        If (dni = Nothing Or nombre = Nothing Or apellido = Nothing Or email = Nothing Or usuario = Nothing Or contrasena = Nothing Or cargo = Nothing) Then
+        If (usuario = Nothing Or contrasena = Nothing) Then
             MessageBox.Show("!Para agregar un usuario debe cargar todos los datos¡", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
             Exit Sub
         End If
 
         Dim busqueda As Boolean = False
-        Dim aux_dni As Integer = Integer.Parse(dni)
-        busqueda = user.buscarUsuario(aux_dni, email)
+        'Dim aux_dni As Integer = Integer.Parse(dni)
+        busqueda = user.buscarUsuario(usuario, contrasena)
 
         If (busqueda = True) Then
             MessageBox.Show("El DNI o el EMAIL a ingresar ya existe en la base de datos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
             Exit Sub
         End If
 
-        user.insertarUsuario(dni, nombre, apellido, usuario, contrasena, email, cargo)
+        user.insertarUsuario(usuario, contrasena, aux_cargo)
         dtgUsuarios.DataSource = vbNull
         dtgUsuarios.DataSource = user.listarUsuarios()
         optimizar()
@@ -52,15 +84,12 @@
     End Sub
 
     Public Sub optimizar()
-        txtDni.Clear()
-        txtNombre.Clear()
-        txtApellido.Clear()
-        txtEmail.Clear()
+
+        txtIdusuario.Clear()
         txtUsuario.Clear()
         txtContrasena.Clear()
-        cmbCargo.Refresh()
-        txtDni.Enabled = True
-        txtEmail.Enabled = True
+        cmbCargos.Refresh()
+
 
         'dtgUsuarios.Columns(0).Width = 70
         'dtgUsuarios.Columns(1).Width = 70
@@ -75,15 +104,11 @@
     End Sub
 
     Private Sub dtgUsuarios_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgUsuarios.CellContentClick
-        txtDni.Text = dtgUsuarios.Item(1, e.RowIndex).Value
-        txtNombre.Text = dtgUsuarios.Item(2, e.RowIndex).Value
-        txtApellido.Text = dtgUsuarios.Item(3, e.RowIndex).Value
-        txtUsuario.Text = dtgUsuarios.Item(4, e.RowIndex).Value
-        txtContrasena.Text = dtgUsuarios.Item(5, e.RowIndex).Value
-        txtEmail.Text = dtgUsuarios.Item(6, e.RowIndex).Value
-        cmbCargo.SelectedItem = dtgUsuarios.Item(7, e.RowIndex).Value
-        txtDni.Enabled = False
-        txtEmail.Enabled = False
+
+        'txtIdusuario.Text = dtgUsuarios.Item(0, e.RowIndex).Value
+        'txtUsuario.Text = dtgUsuarios.Item(1, e.RowIndex).Value
+        'txtContrasena.Text = dtgUsuarios.Item(2, e.RowIndex).Value
+
 
     End Sub
 
@@ -94,42 +119,29 @@
 
     End Sub
 
-    Private Sub rbtActivos_CheckedChanged(sender As Object, e As EventArgs) Handles rbtActivos.CheckedChanged
-        dtgUsuarios.DataSource = vbNull
-        dtgUsuarios.DataSource = user.listarUsuariosActivos()
-        optimizar()
-    End Sub
-
-    Private Sub rbtTodos_CheckedChanged(sender As Object, e As EventArgs) Handles rbtTodos.CheckedChanged
-        dtgUsuarios.DataSource = vbNull
-        dtgUsuarios.DataSource = user.listarUsuarios()
-        optimizar()
-    End Sub
-
-    Private Sub rbtNoactivos_CheckedChanged(sender As Object, e As EventArgs) Handles rbtNoactivos.CheckedChanged
-        dtgUsuarios.DataSource = vbNull
-        dtgUsuarios.DataSource = user.listarUsuariosInactivos()
-        optimizar()
-    End Sub
-
     Private Sub btn_actualizar_Click(sender As Object, e As EventArgs) Handles btn_actualizar.Click
-        Dim dni As String = txtDni.Text
-        Dim nombre As String = txtNombre.Text
-        Dim apellido As String = txtApellido.Text
-        Dim email As String = txtEmail.Text
+        'Dim dni As String = txtDni.Text
+        'Dim nombre As String = txtNombre.Text
+        'Dim apellido As String = txtApellido.Text
+        'Dim email As String = txtEmail.Text
+        Dim idUsuario As Integer = txtIdusuario.Text
         Dim usuario As String = txtUsuario.Text
         Dim contrasena As String = txtContrasena.Text
-        Dim cargo As String = cmbCargo.SelectedItem
+        Dim value As Object = cmbCargos.SelectedValue
 
-        If (dni = Nothing Or nombre = Nothing Or apellido = Nothing Or email = Nothing Or usuario = Nothing Or contrasena = Nothing Or cargo = Nothing) Then
+        If (value IsNot Nothing) Then
+            aux_cargo = Convert.ToInt32(value)
+        End If
+
+        If (usuario = Nothing Or contrasena = Nothing) Then
             MessageBox.Show("!Para actualizar un usuario debe cargar todos los datos¡", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
             Exit Sub
         End If
 
-        resp = MessageBox.Show("¿Esta seguro que desea modificar al usuario: " + nombre.ToString + " " + apellido.ToString + ", Cargo: " + cargo.ToString + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+        resp = MessageBox.Show("¿Esta seguro que desea modificar al usuario: " + usuario.ToString + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If (resp = DialogResult.Yes) Then
-            user.actualizarUsuario(dni, nombre, apellido, usuario, contrasena, cargo)
-            MessageBox.Show("¡El usuario: " + nombre.ToString + " " + apellido.ToString + ", Cargo: " + cargo.ToString + ", se actualizo con exito!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            user.actualizarUsuario(idUsuario, usuario, contrasena, aux_cargo)
+            MessageBox.Show("¡El usuario: " + usuario.ToString + ", se actualizo con exito!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             MessageBox.Show("¡No se realizo ningun cambio!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -141,36 +153,34 @@
     End Sub
 
     Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
-        Dim dni As String = txtDni.Text
-        Dim nombre As String = txtNombre.Text
-        Dim apellido As String = txtApellido.Text
-        Dim email As String = txtEmail.Text
+        Dim idUsuario As Integer = Integer.Parse(txtIdusuario.Text)
         Dim usuario As String = txtUsuario.Text
         Dim contrasena As String = txtContrasena.Text
-        Dim cargo As String = cmbCargo.SelectedItem
-
-        fechaActual.CustomFormat = "yyyy-mm-dd"
-        Dim fechaSistema As String = Convert.ToString(fechaActual.Value)
+        'Dim idCargo As Integer = cmbCargos.ValueMember
 
 
-        If (dni = Nothing Or email = Nothing) Then
+        'fechaActual.CustomFormat = "yyyy-mm-dd"
+        'Dim fechaSistema As String = Convert.ToString(fechaActual.Value)
+
+
+        If (usuario = Nothing Or contrasena = Nothing) Then
             MessageBox.Show("!Para eliminar un usuario debe hacer click en el DNI¡", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Exit Sub
         End If
 
         Dim busqueda As Boolean = False
-        Dim aux_dni As Integer = Integer.Parse(dni)
-        busqueda = user.buscarUsuario(aux_dni, email)
+        'Dim aux_dni As Integer = Integer.Parse(dni)
+        busqueda = user.buscarUsuario(usuario, contrasena)
 
         If (busqueda = False) Then
-            MessageBox.Show("El DNI ingresado no existe en nuestra base de datos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+            MessageBox.Show("El usuario ingresado no existe en nuestra base de datos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
             Exit Sub
         End If
 
-        resp = MessageBox.Show("¿Esta seguro que desea eliminar al usuario: " + nombre.ToString + " " + apellido.ToString + ", Cargo: " + cargo.ToString + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+        resp = MessageBox.Show("¿Esta seguro que desea eliminar al usuario: " + usuario.ToString + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
         If (resp = DialogResult.Yes) Then
-            user.eliminarUsuario(dni, fechaSistema)
-            MessageBox.Show("¡El usuario: " + nombre.ToString + " " + apellido.ToString + ", Cargo: " + cargo.ToString + ", quedo inactivo!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            user.eliminarUsuario(idUsuario)
+            MessageBox.Show("¡El usuario: " + usuario.ToString + ", fue elimiado co exito!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
             dtgUsuarios.DataSource = vbNull
             dtgUsuarios.DataSource = user.listarUsuarios()
             optimizar()
@@ -191,5 +201,11 @@
         dtgUsuarios.DataSource = vbNull
         dtgUsuarios.DataSource = user.busquedaRapida(txtBusqueda.Text)
         optimizar()
+    End Sub
+
+    Private Sub dtgUsuarios_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgUsuarios.CellClick
+        txtIdusuario.Text = dtgUsuarios.Item(0, e.RowIndex).Value
+        txtUsuario.Text = dtgUsuarios.Item(1, e.RowIndex).Value
+        txtContrasena.Text = dtgUsuarios.Item(2, e.RowIndex).Value
     End Sub
 End Class

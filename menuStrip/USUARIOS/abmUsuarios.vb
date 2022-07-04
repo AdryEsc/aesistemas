@@ -15,9 +15,9 @@ Public Class abmUsuarios
 
     Private Sub abmUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'txtDni.TabIndex = 0
-        'rbtTodos.Checked = True
-        dtgUsuarios.DataSource = vbNull
-        dtgUsuarios.DataSource = user.listarUsuarios()
+        rbtTodos.Checked = True
+        'dtgUsuarios.DataSource = vbNull
+        'dtgUsuarios.DataSource = user.listarUsuarios()
 
         conexion = "Data Source=COVID\SQLEXPRESS;Initial Catalog=AESistemas;Persist Security Info=True;User ID=sa;Password=Adry-49686"
         strComando = "Select * from cargos"
@@ -72,7 +72,7 @@ Public Class abmUsuarios
         busqueda = user.buscarUsuario(usuario, contrasena)
 
         If (busqueda = True) Then
-            MessageBox.Show("El DNI o el EMAIL a ingresar ya existe en la base de datos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+            MessageBox.Show("El usuario y/o la contraseña a ingresar ya existe en la base de datos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
             Exit Sub
         End If
 
@@ -124,7 +124,7 @@ Public Class abmUsuarios
         'Dim nombre As String = txtNombre.Text
         'Dim apellido As String = txtApellido.Text
         'Dim email As String = txtEmail.Text
-        Dim idUsuario As Integer = txtIdusuario.Text
+
         Dim usuario As String = txtUsuario.Text
         Dim contrasena As String = txtContrasena.Text
         Dim value As Object = cmbCargos.SelectedValue
@@ -137,6 +137,8 @@ Public Class abmUsuarios
             MessageBox.Show("!Para actualizar un usuario debe cargar todos los datos¡", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
             Exit Sub
         End If
+
+        Dim idUsuario As Integer = Convert.ToInt32(txtIdusuario.Text)
 
         resp = MessageBox.Show("¿Esta seguro que desea modificar al usuario: " + usuario.ToString + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If (resp = DialogResult.Yes) Then
@@ -153,7 +155,7 @@ Public Class abmUsuarios
     End Sub
 
     Private Sub btn_eliminar_Click(sender As Object, e As EventArgs) Handles btn_eliminar.Click
-        Dim idUsuario As Integer = Integer.Parse(txtIdusuario.Text)
+
         Dim usuario As String = txtUsuario.Text
         Dim contrasena As String = txtContrasena.Text
         'Dim idCargo As Integer = cmbCargos.ValueMember
@@ -164,11 +166,12 @@ Public Class abmUsuarios
 
 
         If (usuario = Nothing Or contrasena = Nothing) Then
-            MessageBox.Show("!Para eliminar un usuario debe hacer click en el DNI¡", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("!Para eliminar un usuario debe hacer click en la tabla¡", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
             Exit Sub
         End If
 
         Dim busqueda As Boolean = False
+        Dim busqueda2 As Boolean = False
         'Dim aux_dni As Integer = Integer.Parse(dni)
         busqueda = user.buscarUsuario(usuario, contrasena)
 
@@ -177,8 +180,30 @@ Public Class abmUsuarios
             Exit Sub
         End If
 
+        busqueda2 = user.buscarSiEsOcupado(usuario, contrasena)
+        'MsgBox(busqueda2)
+        'Exit Sub
+        If (busqueda2 = True) Then
+            resp = MessageBox.Show("¿Este usuario esta OCUPADO, esta seguro que desea elimiarlo?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+            If (resp = DialogResult.Yes) Then
+                Dim idUsuario As Integer = Convert.ToInt32(txtIdusuario.Text)
+                user.eliminarUsuario(idUsuario)
+                MessageBox.Show("¡El usuario: " + usuario.ToString + ", fue elimiado co exito!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                dtgUsuarios.DataSource = vbNull
+                dtgUsuarios.DataSource = user.listarUsuarios()
+                optimizar()
+                Exit Sub
+            Else
+                dtgUsuarios.DataSource = vbNull
+                dtgUsuarios.DataSource = user.listarUsuarios()
+                optimizar()
+                Exit Sub
+            End If
+        End If
+
         resp = MessageBox.Show("¿Esta seguro que desea eliminar al usuario: " + usuario.ToString + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
         If (resp = DialogResult.Yes) Then
+            Dim idUsuario As Integer = Convert.ToInt32(txtIdusuario.Text)
             user.eliminarUsuario(idUsuario)
             MessageBox.Show("¡El usuario: " + usuario.ToString + ", fue elimiado co exito!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
             dtgUsuarios.DataSource = vbNull
@@ -190,6 +215,8 @@ Public Class abmUsuarios
             optimizar()
             Exit Sub
         End If
+
+
 
     End Sub
 
@@ -207,5 +234,20 @@ Public Class abmUsuarios
         txtIdusuario.Text = dtgUsuarios.Item(0, e.RowIndex).Value
         txtUsuario.Text = dtgUsuarios.Item(1, e.RowIndex).Value
         txtContrasena.Text = dtgUsuarios.Item(2, e.RowIndex).Value
+    End Sub
+
+    Private Sub rbtTodos_CheckedChanged(sender As Object, e As EventArgs) Handles rbtTodos.CheckedChanged
+        dtgUsuarios.DataSource = vbNull
+        dtgUsuarios.DataSource = user.listarUsuarios()
+    End Sub
+
+    Private Sub rbtOcupados_CheckedChanged(sender As Object, e As EventArgs) Handles rbtOcupados.CheckedChanged
+        dtgUsuarios.DataSource = vbNull
+        dtgUsuarios.DataSource = user.listarUsuariosOcupados()
+    End Sub
+
+    Private Sub rbtLibres_CheckedChanged(sender As Object, e As EventArgs) Handles rbtLibres.CheckedChanged
+        dtgUsuarios.DataSource = vbNull
+        dtgUsuarios.DataSource = user.listarUsuariosNoOcupados()
     End Sub
 End Class

@@ -24,6 +24,11 @@ Partial Class abmUsuarios
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abmUsuarios))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.rbtLibres = New System.Windows.Forms.RadioButton()
+        Me.rbtTodos = New System.Windows.Forms.RadioButton()
+        Me.rbtOcupados = New System.Windows.Forms.RadioButton()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.txtIdusuario = New System.Windows.Forms.TextBox()
         Me.cmbCargos = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -42,8 +47,8 @@ Partial Class abmUsuarios
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.dtgUsuarios = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         CType(Me.dtgUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -52,6 +57,7 @@ Partial Class abmUsuarios
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.txtIdusuario)
         Me.GroupBox1.Controls.Add(Me.cmbCargos)
@@ -77,6 +83,60 @@ Partial Class abmUsuarios
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos para agregar/actualizar usuarios"
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.rbtLibres)
+        Me.GroupBox2.Controls.Add(Me.rbtTodos)
+        Me.GroupBox2.Controls.Add(Me.rbtOcupados)
+        Me.GroupBox2.Location = New System.Drawing.Point(809, 12)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(260, 54)
+        Me.GroupBox2.TabIndex = 36
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Listar por:"
+        '
+        'rbtLibres
+        '
+        Me.rbtLibres.AutoSize = True
+        Me.rbtLibres.Location = New System.Drawing.Point(191, 27)
+        Me.rbtLibres.Name = "rbtLibres"
+        Me.rbtLibres.Size = New System.Drawing.Size(53, 17)
+        Me.rbtLibres.TabIndex = 35
+        Me.rbtLibres.TabStop = True
+        Me.rbtLibres.Text = "Libres"
+        Me.rbtLibres.UseVisualStyleBackColor = True
+        '
+        'rbtTodos
+        '
+        Me.rbtTodos.AutoSize = True
+        Me.rbtTodos.Location = New System.Drawing.Point(25, 27)
+        Me.rbtTodos.Name = "rbtTodos"
+        Me.rbtTodos.Size = New System.Drawing.Size(55, 17)
+        Me.rbtTodos.TabIndex = 33
+        Me.rbtTodos.TabStop = True
+        Me.rbtTodos.Text = "Todos"
+        Me.rbtTodos.UseVisualStyleBackColor = True
+        '
+        'rbtOcupados
+        '
+        Me.rbtOcupados.AutoSize = True
+        Me.rbtOcupados.Location = New System.Drawing.Point(99, 27)
+        Me.rbtOcupados.Name = "rbtOcupados"
+        Me.rbtOcupados.Size = New System.Drawing.Size(74, 17)
+        Me.rbtOcupados.TabIndex = 34
+        Me.rbtOcupados.TabStop = True
+        Me.rbtOcupados.Text = "Ocupados"
+        Me.rbtOcupados.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(11, 72)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(78, 13)
+        Me.Label1.TabIndex = 31
+        Me.Label1.Text = "Nro de Usuario"
+        '
         'txtIdusuario
         '
         Me.txtIdusuario.Enabled = False
@@ -97,7 +157,7 @@ Partial Class abmUsuarios
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(273, 19)
+        Me.Label11.Location = New System.Drawing.Point(235, 20)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(339, 15)
         Me.Label11.TabIndex = 28
@@ -106,7 +166,7 @@ Partial Class abmUsuarios
         'Button1
         '
         Me.Button1.Image = Global.menuStrip.My.Resources.Resources.vector_find_icon
-        Me.Button1.Location = New System.Drawing.Point(724, 12)
+        Me.Button1.Location = New System.Drawing.Point(686, 12)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(32, 33)
         Me.Button1.TabIndex = 27
@@ -114,7 +174,7 @@ Partial Class abmUsuarios
         '
         'txtBusqueda
         '
-        Me.txtBusqueda.Location = New System.Drawing.Point(618, 19)
+        Me.txtBusqueda.Location = New System.Drawing.Point(580, 19)
         Me.txtBusqueda.Name = "txtBusqueda"
         Me.txtBusqueda.Size = New System.Drawing.Size(100, 20)
         Me.txtBusqueda.TabIndex = 26
@@ -152,7 +212,7 @@ Partial Class abmUsuarios
         'btnLimpiar
         '
         Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
-        Me.btnLimpiar.Location = New System.Drawing.Point(468, 75)
+        Me.btnLimpiar.Location = New System.Drawing.Point(467, 113)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(55, 51)
         Me.btnLimpiar.TabIndex = 22
@@ -163,7 +223,7 @@ Partial Class abmUsuarios
         Me.btn_eliminar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn_eliminar.Image = CType(resources.GetObject("btn_eliminar.Image"), System.Drawing.Image)
         Me.btn_eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_eliminar.Location = New System.Drawing.Point(941, 72)
+        Me.btn_eliminar.Location = New System.Drawing.Point(938, 85)
         Me.btn_eliminar.Name = "btn_eliminar"
         Me.btn_eliminar.Size = New System.Drawing.Size(115, 50)
         Me.btn_eliminar.TabIndex = 17
@@ -176,7 +236,7 @@ Partial Class abmUsuarios
         Me.btn_actualizar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn_actualizar.Image = CType(resources.GetObject("btn_actualizar.Image"), System.Drawing.Image)
         Me.btn_actualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_actualizar.Location = New System.Drawing.Point(793, 72)
+        Me.btn_actualizar.Location = New System.Drawing.Point(790, 85)
         Me.btn_actualizar.Name = "btn_actualizar"
         Me.btn_actualizar.Size = New System.Drawing.Size(128, 50)
         Me.btn_actualizar.TabIndex = 16
@@ -189,7 +249,7 @@ Partial Class abmUsuarios
         Me.btn_agregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn_agregar.Image = CType(resources.GetObject("btn_agregar.Image"), System.Drawing.Image)
         Me.btn_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_agregar.Location = New System.Drawing.Point(655, 72)
+        Me.btn_agregar.Location = New System.Drawing.Point(654, 85)
         Me.btn_agregar.Name = "btn_agregar"
         Me.btn_agregar.Size = New System.Drawing.Size(116, 50)
         Me.btn_agregar.TabIndex = 15
@@ -250,15 +310,6 @@ Partial Class abmUsuarios
         Me.dtgUsuarios.Size = New System.Drawing.Size(1058, 384)
         Me.dtgUsuarios.TabIndex = 1
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(11, 72)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(78, 13)
-        Me.Label1.TabIndex = 31
-        Me.Label1.Text = "Nro de Usuario"
-        '
         'abmUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -273,6 +324,8 @@ Partial Class abmUsuarios
         Me.Text = "USUARIOS"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         CType(Me.dtgUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -298,4 +351,8 @@ Partial Class abmUsuarios
     Friend WithEvents cmbCargos As ComboBox
     Friend WithEvents txtIdusuario As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents rbtLibres As RadioButton
+    Friend WithEvents rbtTodos As RadioButton
+    Friend WithEvents rbtOcupados As RadioButton
 End Class

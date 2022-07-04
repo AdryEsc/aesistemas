@@ -13,7 +13,7 @@ Public Class usuarios
     Dim c_email As String
     Dim c_rol As String
     Dim c_fechaAlta As Date
-    Dim c_activo As String
+    Dim c_ocupado As String
     'Dim c_fecheBaja As Date
     Dim c_cargo As String
 
@@ -128,6 +128,15 @@ Public Class usuarios
         End Set
     End Property
 
+    Public Property Ocupado() As String
+        Get
+            Return Me.c_ocupado
+        End Get
+        Set(value As String)
+            Me.c_ocupado = value
+        End Set
+    End Property
+
     Public Sub insertarUsuario(p_usuario As String, p_contrasena As String, p_idCargo As Integer)
 
         Try
@@ -146,7 +155,7 @@ Public Class usuarios
     Public Function listarUsuarios() As List(Of usuarios)
         conx.conectarBD()
         consulta = conx.conexion.CreateCommand()
-        consulta.CommandText = "select u.idUsuario,u.usuario,u.contrasena,c.nombre from usuarios as u inner join cargos as c on u.idCargo=c.idCargo"
+        consulta.CommandText = "select u.idUsuario,u.usuario,u.contrasena,c.nombre, u.ocupado from usuarios as u inner join cargos as c on u.idCargo=c.idCargo"
         Dim lector As SqlDataReader = consulta.ExecuteReader()
         Dim lista As New List(Of usuarios)
         Dim usuario As usuarios
@@ -157,22 +166,83 @@ Public Class usuarios
             usuario = New usuarios
 
             usuario.Nro_Usuario = lector.GetInt32(0)
-            'usuario.Dni = lector.GetInt32(1)
-            'usuario.Nombres = lector.GetString(2)
-            'usuario.Apellidos = lector.GetString(3)
             usuario.Usuario = lector.GetString(1)
             usuario.Contraseña = lector.GetString(2)
-            'usuario.Email = lector.GetString(6)
             usuario.Cargo = lector.GetString(3)
-            'usuario.Fecha_Alta = lector.GetDateTime(8)
-            ''cliente.Fecha_Baja = Convert.ToString(lector.GetDateTime(7))
-            'aux = Convert.ToInt32(lector.GetString(9))
+            aux = Integer.Parse(lector.GetString(4))
 
-            'If (aux = 0) Then
-            '    usuario.Activo = "Si"
-            'Else
-            '    usuario.Activo = "No"
-            'End If
+
+            If (aux = 0) Then
+                usuario.Ocupado = "No"
+            Else
+                usuario.Ocupado = "SI"
+            End If
+            lista.Add(usuario)
+
+        End While
+        conx.desconectarBD()
+        Return lista
+
+    End Function
+
+    Public Function listarUsuariosOcupados() As List(Of usuarios)
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select u.idUsuario,u.usuario,u.contrasena,c.nombre, u.ocupado from usuarios as u inner join cargos as c on u.idCargo=c.idCargo where ocupado = 1"
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        Dim lista As New List(Of usuarios)
+        Dim usuario As usuarios
+        Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+            usuario = New usuarios
+
+            usuario.Nro_Usuario = lector.GetInt32(0)
+            usuario.Usuario = lector.GetString(1)
+            usuario.Contraseña = lector.GetString(2)
+            usuario.Cargo = lector.GetString(3)
+            aux = Integer.Parse(lector.GetString(4))
+
+
+            If (aux = 0) Then
+                usuario.Ocupado = "No"
+            Else
+                usuario.Ocupado = "SI"
+            End If
+            lista.Add(usuario)
+
+        End While
+        conx.desconectarBD()
+        Return lista
+
+    End Function
+
+    Public Function listarUsuariosNoOcupados() As List(Of usuarios)
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select u.idUsuario,u.usuario,u.contrasena,c.nombre, u.ocupado from usuarios as u inner join cargos as c on u.idCargo=c.idCargo where ocupado = 0"
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        Dim lista As New List(Of usuarios)
+        Dim usuario As usuarios
+        Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+            usuario = New usuarios
+
+            usuario.Nro_Usuario = lector.GetInt32(0)
+            usuario.Usuario = lector.GetString(1)
+            usuario.Contraseña = lector.GetString(2)
+            usuario.Cargo = lector.GetString(3)
+            aux = Integer.Parse(lector.GetString(4))
+
+
+            If (aux = 0) Then
+                usuario.Ocupado = "No"
+            Else
+                usuario.Ocupado = "SI"
+            End If
             lista.Add(usuario)
 
         End While
@@ -209,6 +279,32 @@ Public Class usuarios
 
             If (p_usuario = lector.GetString(1) Or p_contrasena = lector.GetString(2)) Then
                 busqueda = True
+            End If
+            'lista.Add(usuario)
+
+        End While
+        conx.desconectarBD()
+        Return busqueda
+    End Function
+
+    Public Function buscarSiEsOcupado(p_usuario As String, p_contrasena As String) As Boolean
+        Dim busqueda As Boolean = False
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select * from usuarios"
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        'Dim lista As New List(Of usuarios)
+        'Dim usuario As usuarios
+        Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+
+            If (p_usuario = lector.GetString(1) And p_contrasena = lector.GetString(2)) Then
+                aux = Integer.Parse(lector.GetString(4))
+                If (aux = 1) Then
+                    busqueda = True
+                End If
             End If
             'lista.Add(usuario)
 
@@ -320,7 +416,7 @@ Public Class usuarios
     Public Function busquedaRapida(caracter As String) As List(Of usuarios)
         conx.conectarBD()
         consulta = conx.conexion.CreateCommand()
-        consulta.CommandText = "select u.idUsuario,u.usuario,u.contrasena,c.nombre from usuarios as u inner join cargos as c on u.idCargo=c.idCargo where u.usuario like '%" + caracter + "%' order by nombre"
+        consulta.CommandText = "select u.idUsuario,u.usuario,u.contrasena,c.nombre, u.ocupado from usuarios as u inner join cargos as c on u.idCargo=c.idCargo where u.usuario like '%" + caracter + "%' order by nombre"
         Dim lector As SqlDataReader = consulta.ExecuteReader()
         Dim lista As New List(Of usuarios)
         Dim usuario As usuarios
@@ -331,22 +427,17 @@ Public Class usuarios
             usuario = New usuarios
 
             usuario.Nro_Usuario = lector.GetInt32(0)
-            'usuario.Dni = lector.GetInt32(1)
-            'usuario.Nombres = lector.GetString(2)
-            'usuario.Apellidos = lector.GetString(3)
             usuario.Usuario = lector.GetString(1)
             usuario.Contraseña = lector.GetString(2)
-            'usuario.Email = lector.GetString(6)
             usuario.Cargo = lector.GetString(3)
-            'usuario.Fecha_Alta = lector.GetDateTime(8)
-            'cliente.Fecha_Baja = Convert.ToString(lector.GetDateTime(7))
-            'aux = Convert.ToInt32(lector.GetString(9))
+            aux = Integer.Parse(lector.GetString(4))
 
-            'If (aux = 0) Then
-            '    usuario.Activo = "Si"
-            'Else
-            '    usuario.Activo = "No"
-            'End If
+
+            If (aux = 0) Then
+                usuario.Ocupado = "No"
+            Else
+                usuario.Ocupado = "SI"
+            End If
             lista.Add(usuario)
 
         End While

@@ -14,7 +14,7 @@
         encontrado = user.inicioSesion(usuario, contrasena)
 
         If (encontrado = True) Then
-            rol = user.obtenerRol(usuario, contrasena)
+            'rol = user.obtenerRol(usuario, contrasena)
             If (rol = "Administrador") Then
                 AppAESistemas.ShowDialog()
                 txtUsuario.Clear()

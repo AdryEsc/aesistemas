@@ -125,12 +125,19 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CLIENTES\clientes.vb" />
+    <Compile Include="EMPLEADOS\abmEmpleados.Designer.vb">
+      <DependentUpon>abmEmpleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EMPLEADOS\abmEmpleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="EMPLEADOS\AppAESistemasEmp.Designer.vb">
       <DependentUpon>AppAESistemasEmp.vb</DependentUpon>
     </Compile>
     <Compile Include="EMPLEADOS\AppAESistemasEmp.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EMPLEADOS\empleados.vb" />
     <Compile Include="MODULOS\soloLetras.vb" />
     <Compile Include="MODULOS\soloParaCuit-Cuil-telefono.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -187,6 +194,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="USUARIOS\usuarios.vb" />
+    <Compile Include="USUARIOS\usuariosParaEmpleados.Designer.vb">
+      <DependentUpon>usuariosParaEmpleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="USUARIOS\usuariosParaEmpleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VENTAS\abmVentas.Designer.vb">
       <DependentUpon>abmVentas.vb</DependentUpon>
     </Compile>
@@ -200,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CLIENTES\abmClientes.resx">
       <DependentUpon>abmClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EMPLEADOS\abmEmpleados.resx">
+      <DependentUpon>abmEmpleados.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EMPLEADOS\AppAESistemasEmp.resx">
       <DependentUpon>AppAESistemasEmp.vb</DependentUpon>
@@ -227,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="USUARIOS\inicioSesion.resx">
       <DependentUpon>inicioSesion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="USUARIOS\usuariosParaEmpleados.resx">
+      <DependentUpon>usuariosParaEmpleados.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VENTAS\abmVentas.resx">
       <DependentUpon>abmVentas.vb</DependentUpon>
@@ -262,6 +281,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icono-principal.ico" />
+    <None Include="Resources\descarga1.jpg" />
     <None Include="Resources\imagen 11.jpg" />
     <None Include="Resources\imagen 8.jpg" />
     <None Include="Resources\imagen 3.png" />

@@ -23,3 +23,5 @@ C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\AESistemas.exe
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\AESistemas.xml
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\AESistemas.pdb
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\AESistemas.vbprojAssemblyReference.cache
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.abmEmpleados.resources
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.usuariosParaEmpleados.resources

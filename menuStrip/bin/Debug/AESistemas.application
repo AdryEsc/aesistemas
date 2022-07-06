@@ -9,14 +9,14 @@
     <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="AESistemas.exe.manifest" size="3998">
+    <dependentAssembly dependencyType="install" codebase="AESistemas.exe.manifest" size="3999">
       <assemblyIdentity name="AESistemas.exe" version="1.0.0.9" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Fb/+asigRCpLbPpozXOcHXhyYXKMYrdN/AtvetgeTp4=</dsig:DigestValue>
+        <dsig:DigestValue>xqXH+31CVhvI5sZ7T+ZNYts6Lng/k2zyEFNygpMawF8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

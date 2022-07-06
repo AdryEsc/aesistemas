@@ -363,42 +363,6 @@ Public Class usuarios
         Return busqueda
     End Function
 
-    Public Function obtenerRol(p_usuario As String, p_contrasena As String) As String
-        Dim rol As String = ""
-        conx.conectarBD()
-        consulta = conx.conexion.CreateCommand()
-        consulta.CommandText = "select * from usuarios"
-        Dim lector As SqlDataReader = consulta.ExecuteReader()
-        'Dim lista As New List(Of usuarios)
-        'Dim usuario As usuarios
-        'Dim aux As Integer = 0
-        'Dim i As Nullable(Of DateTime)
-
-        While (lector.Read())
-            'usuario = New usuarios
-
-            'usuario.Nro_Usuario = lector.GetInt32(0)
-            'usuario.Dni = lector.GetInt32(1)
-            'usuario.Nombres = lector.GetString(2)
-            'usuario.Apellidos = lector.GetString(3)
-            'usuario.Usuario = lector.GetString(4)
-            'usuario.Contraseña = lector.GetString(5)
-            'usuario.Email = lector.GetString(6)
-            'usuario.Cargo = lector.GetString(7)
-            'usuario.Fecha_Alta = lector.GetDateTime(8)
-            ''cliente.Fecha_Baja = Convert.ToString(lector.GetDateTime(7))
-            'aux = Convert.ToInt32(lector.GetString(9))
-
-            If (p_usuario = lector.GetString(4) And p_contrasena = lector.GetString(5)) Then
-                rol = lector.GetString(7)
-            End If
-            'lista.Add(usuario)
-
-        End While
-        conx.desconectarBD()
-        Return rol
-    End Function
-
     Public Sub eliminarUsuario(p_idUsuario As Integer)
         Try
             conx.conectarBD()
@@ -445,5 +409,51 @@ Public Class usuarios
         Return lista
 
     End Function
+
+    Public Function listarUsuariosParaEmpleados() As List(Of usuarios)
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select u.idUsuario,u.usuario,u.contrasena,c.nombre, u.ocupado from usuarios as u inner join cargos as c on u.idCargo=c.idCargo where u.ocupado=0"
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        Dim lista As New List(Of usuarios)
+        Dim usuario As usuarios
+        Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+            usuario = New usuarios
+
+            usuario.Nro_Usuario = lector.GetInt32(0)
+            usuario.Usuario = lector.GetString(1)
+            usuario.Contraseña = lector.GetString(2)
+            usuario.Cargo = lector.GetString(3)
+            aux = Integer.Parse(lector.GetString(4))
+
+
+            If (aux = 0) Then
+                usuario.Ocupado = "No"
+            Else
+                usuario.Ocupado = "SI"
+            End If
+            lista.Add(usuario)
+
+        End While
+        conx.desconectarBD()
+        Return lista
+
+    End Function
+
+    Public Sub actualizarOcupado(p_idUsuario As Integer)
+        Try
+            conx.conectarBD()
+
+            consulta = New SqlCommand("update usuarios set ocupado=1 where idUsuario=" & p_idUsuario & "", conx.conexion)
+            consulta.ExecuteNonQuery()
+
+            conx.desconectarBD()
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+    End Sub
 
 End Class

@@ -333,34 +333,34 @@ Public Class usuarios
         consulta = conx.conexion.CreateCommand()
         consulta.CommandText = "select * from usuarios"
         Dim lector As SqlDataReader = consulta.ExecuteReader()
-        'Dim lista As New List(Of usuarios)
-        'Dim usuario As usuarios
-        'Dim aux As Integer = 0
-        'Dim i As Nullable(Of DateTime)
 
         While (lector.Read())
-            'usuario = New usuarios
 
-            'usuario.Nro_Usuario = lector.GetInt32(0)
-            'usuario.Dni = lector.GetInt32(1)
-            'usuario.Nombres = lector.GetString(2)
-            'usuario.Apellidos = lector.GetString(3)
-            'usuario.Usuario = lector.GetString(4)
-            'usuario.Contraseña = lector.GetString(5)
-            'usuario.Email = lector.GetString(6)
-            'usuario.Cargo = lector.GetString(7)
-            'usuario.Fecha_Alta = lector.GetDateTime(8)
-            ''cliente.Fecha_Baja = Convert.ToString(lector.GetDateTime(7))
-            'aux = Convert.ToInt32(lector.GetString(9))
-
-            If (p_usuario = lector.GetString(4) And p_contrasena = lector.GetString(5)) Then
+            If (p_usuario = lector.GetString(1) And p_contrasena = lector.GetString(2)) Then
                 busqueda = True
             End If
-            'lista.Add(usuario)
 
         End While
         conx.desconectarBD()
         Return busqueda
+    End Function
+
+    Public Function obtenerIdCargo(p_usuario As String, p_contrasena As String) As Integer
+        Dim idCargo As Integer = 0
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select * from usuarios"
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+
+        While (lector.Read())
+
+            If (p_usuario = lector.GetString(1) And p_contrasena = lector.GetString(2)) Then
+                idCargo = lector.GetInt32(3)
+            End If
+
+        End While
+        conx.desconectarBD()
+        Return idCargo
     End Function
 
     Public Sub eliminarUsuario(p_idUsuario As Integer)
@@ -377,7 +377,7 @@ Public Class usuarios
 
     End Sub
 
-    Public Function busquedaRapida(caracter As String) As List(Of usuarios)
+    Public Function busquedaRapida(ByVal caracter As String) As List(Of usuarios)
         conx.conectarBD()
         consulta = conx.conexion.CreateCommand()
         consulta.CommandText = "select u.idUsuario,u.usuario,u.contrasena,c.nombre, u.ocupado from usuarios as u inner join cargos as c on u.idCargo=c.idCargo where u.usuario like '%" + caracter + "%' order by nombre"
@@ -454,6 +454,22 @@ Public Class usuarios
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
+    End Sub
+
+    Public Sub comboboxCargosUsuarios(cmb As ComboBox)
+        Dim adapter As SqlDataAdapter
+        Dim data As DataSet
+
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select *from cargos"
+        adapter = New System.Data.SqlClient.SqlDataAdapter(consulta.CommandText, conx.conexion)
+        data = New DataSet
+        adapter.Fill(data)
+        cmb.DataSource = data.Tables(0)
+        cmb.DisplayMember = "nombre"
+        cmb.ValueMember = "idCargo"
+        conx.desconectarBD()
     End Sub
 
 End Class

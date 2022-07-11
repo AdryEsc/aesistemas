@@ -8,7 +8,6 @@ C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.AppAESistemas
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.abmClientes.resources
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.AppAESistemasEmp.resources
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.Resources.resources
-C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.abmProductos.resources
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.abmProveedores.resources
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.prueba.resources
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.texboxSoloNumerosOletras.resources
@@ -25,3 +24,4 @@ C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\AESistemas.pdb
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\AESistemas.vbprojAssemblyReference.cache
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.abmEmpleados.resources
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.usuariosParaEmpleados.resources
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.abmProductos.resources

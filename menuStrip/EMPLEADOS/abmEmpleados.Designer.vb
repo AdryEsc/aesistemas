@@ -48,7 +48,6 @@ Partial Class abmEmpleados
         Me.txtNombres = New System.Windows.Forms.TextBox()
         Me.txtDni = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.btnBusquedaRapida = New System.Windows.Forms.Button()
         Me.txtBusqueda = New System.Windows.Forms.TextBox()
         Me.fechaActual = New System.Windows.Forms.DateTimePicker()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -95,7 +94,6 @@ Partial Class abmEmpleados
         Me.GroupBox1.Controls.Add(Me.txtNombres)
         Me.GroupBox1.Controls.Add(Me.txtDni)
         Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.Controls.Add(Me.btnBusquedaRapida)
         Me.GroupBox1.Controls.Add(Me.txtBusqueda)
         Me.GroupBox1.Controls.Add(Me.fechaActual)
         Me.GroupBox1.Controls.Add(Me.Label10)
@@ -316,15 +314,6 @@ Partial Class abmEmpleados
         Me.Label11.TabIndex = 28
         Me.Label11.Text = "Ingrese iniciales del nombre para busqueda rapida:"
         '
-        'btnBusquedaRapida
-        '
-        Me.btnBusquedaRapida.Image = Global.menuStrip.My.Resources.Resources.vector_find_icon
-        Me.btnBusquedaRapida.Location = New System.Drawing.Point(919, 12)
-        Me.btnBusquedaRapida.Name = "btnBusquedaRapida"
-        Me.btnBusquedaRapida.Size = New System.Drawing.Size(32, 33)
-        Me.btnBusquedaRapida.TabIndex = 27
-        Me.btnBusquedaRapida.UseVisualStyleBackColor = True
-        '
         'txtBusqueda
         '
         Me.txtBusqueda.Location = New System.Drawing.Point(813, 18)
@@ -502,7 +491,6 @@ Partial Class abmEmpleados
     Friend WithEvents Label9 As Label
     Friend WithEvents fechaActual As DateTimePicker
     Friend WithEvents txtBusqueda As TextBox
-    Friend WithEvents btnBusquedaRapida As Button
     Friend WithEvents Label11 As Label
     Friend WithEvents txtIdUsuario As TextBox
     Friend WithEvents dtpFecSal As DateTimePicker

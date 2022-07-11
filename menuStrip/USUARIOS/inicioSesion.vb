@@ -1,12 +1,12 @@
 ﻿Public Class inicioSesion
     Dim user As New usuarios()
+    Public idCargo As Integer
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim encontrado As Boolean = False
-        Dim rol As String = ""
         Dim usuario As String = txtUsuario.Text
         Dim contrasena As String = txtContrasena.Text
 
-        If (usuario = "" Or contrasena = "") Then
+        If (txtUsuario.Text = Nothing Or txtContrasena.Text = Nothing) Then
             MessageBox.Show("¡Por favor ingrese usuario y contraseña!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
@@ -14,22 +14,23 @@
         encontrado = user.inicioSesion(usuario, contrasena)
 
         If (encontrado = True) Then
-            'rol = user.obtenerRol(usuario, contrasena)
-            If (rol = "Administrador") Then
-                AppAESistemas.ShowDialog()
-                txtUsuario.Clear()
-                txtContrasena.Clear()
-            Else
 
-                AppAESistemasEmp.ShowDialog()
-                txtUsuario.Clear()
-                txtContrasena.Clear()
-            End If
+            idCargo = user.obtenerIdCargo(usuario, contrasena)
+            Select Case idCargo
+                Case 1
+                    AppAESistemas.ShowDialog()
+
+                Case 2
+                    AppAESistemasEmp.ShowDialog()
+                Case Else
+                    MsgBox("Este usuario o tiene cargo asignado")
+                    Exit Sub
+            End Select
+            txtUsuario.Clear()
+            txtContrasena.Clear()
         Else
-                MessageBox.Show("¡Usuario o contraseña incorrectos!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+            MessageBox.Show("¡Usuario o contraseña incorrectos!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Stop)
         End If
-
-
 
     End Sub
 

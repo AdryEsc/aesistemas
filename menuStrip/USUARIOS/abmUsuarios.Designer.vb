@@ -32,7 +32,6 @@ Partial Class abmUsuarios
         Me.txtIdusuario = New System.Windows.Forms.TextBox()
         Me.cmbCargos = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.txtBusqueda = New System.Windows.Forms.TextBox()
         Me.fechaActual = New System.Windows.Forms.DateTimePicker()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -62,7 +61,6 @@ Partial Class abmUsuarios
         Me.GroupBox1.Controls.Add(Me.txtIdusuario)
         Me.GroupBox1.Controls.Add(Me.cmbCargos)
         Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.txtBusqueda)
         Me.GroupBox1.Controls.Add(Me.fechaActual)
         Me.GroupBox1.Controls.Add(Me.Label10)
@@ -147,6 +145,7 @@ Partial Class abmUsuarios
         '
         'cmbCargos
         '
+        Me.cmbCargos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCargos.FormattingEnabled = True
         Me.cmbCargos.Location = New System.Drawing.Point(329, 132)
         Me.cmbCargos.Name = "cmbCargos"
@@ -162,15 +161,6 @@ Partial Class abmUsuarios
         Me.Label11.Size = New System.Drawing.Size(339, 15)
         Me.Label11.TabIndex = 28
         Me.Label11.Text = "Ingrese iniciales del nombre para busqueda rapida:"
-        '
-        'Button1
-        '
-        Me.Button1.Image = Global.menuStrip.My.Resources.Resources.vector_find_icon
-        Me.Button1.Location = New System.Drawing.Point(686, 12)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(32, 33)
-        Me.Button1.TabIndex = 27
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'txtBusqueda
         '
@@ -346,7 +336,6 @@ Partial Class abmUsuarios
     Friend WithEvents Label9 As Label
     Friend WithEvents fechaActual As DateTimePicker
     Friend WithEvents txtBusqueda As TextBox
-    Friend WithEvents Button1 As Button
     Friend WithEvents Label11 As Label
     Friend WithEvents cmbCargos As ComboBox
     Friend WithEvents txtIdusuario As TextBox

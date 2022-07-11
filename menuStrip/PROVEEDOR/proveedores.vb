@@ -110,7 +110,7 @@ Public Class proveedores
             '    Exit Try
             'End If
 
-            consulta = New SqlCommand("insert into proveedores (nombre,cuit,direccion,telefono,email) values('" + p_nombre + "','" + p_cuit + "','" + p_direccion + "','" + p_telefono + "','" + p_email + "')", conx.conexion)
+            consulta = New SqlCommand("insert into proveedores (nombre,cuit,direccion,telefono,email) values('" & p_nombre & "','" & p_cuit & "','" & p_direccion & "','" & p_telefono & "','" & p_email & "')", conx.conexion)
             consulta.ExecuteNonQuery()
             MessageBox.Show("!El proveedor: " + p_nombre.ToString + " , CUIT: " + p_cuit + " fue cargado exitosamente¡", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
             conx.desconectarBD()
@@ -123,7 +123,7 @@ Public Class proveedores
     Public Function listarProveedores() As List(Of proveedores)
         conx.conectarBD()
         consulta = conx.conexion.CreateCommand()
-        consulta.CommandText = "select * from proveedores order by nombre"
+        consulta.CommandText = "select * from proveedores where idProveedor <> 4 order by nombre"
         Dim lector As SqlDataReader = consulta.ExecuteReader()
         Dim lista As New List(Of proveedores)
         Dim proveedor As proveedores
@@ -159,7 +159,7 @@ Public Class proveedores
     Public Function listarProveedoresActivos() As List(Of proveedores)
         conx.conectarBD()
         consulta = conx.conexion.CreateCommand()
-        consulta.CommandText = "select * from proveedores where activo=0 order by nombre"
+        consulta.CommandText = "select * from proveedores where activo=0 and idProveedor <> 4 order by nombre"
         Dim lector As SqlDataReader = consulta.ExecuteReader()
         Dim lista As New List(Of proveedores)
         Dim proveedor As proveedores
@@ -195,7 +195,7 @@ Public Class proveedores
     Public Function listarProveedoresInactivos() As List(Of proveedores)
         conx.conectarBD()
         consulta = conx.conexion.CreateCommand()
-        consulta.CommandText = "select * from proveedores where activo=1 order by nombre"
+        consulta.CommandText = "select * from proveedores where activo=1 and idProveedor <> 4 order by nombre"
         Dim lector As SqlDataReader = consulta.ExecuteReader()
         Dim lista As New List(Of proveedores)
         Dim proveedor As proveedores
@@ -232,7 +232,7 @@ Public Class proveedores
         Dim busqueda As Boolean = False
         conx.conectarBD()
         consulta = conx.conexion.CreateCommand()
-        consulta.CommandText = "select * from proveedores"
+        consulta.CommandText = "select * from proveedores where idProveedor <> 4"
         Dim lector As SqlDataReader = consulta.ExecuteReader()
         'Dim lista As New List(Of proveedores)
         'Dim proveedor As proveedores
@@ -263,11 +263,11 @@ Public Class proveedores
         Return busqueda
     End Function
 
-    Public Sub actualizarProveedor(p_nombre As String, p_cuit As String, p_direccion As String, p_telefono As String, p_email As String)
+    Public Sub actualizarProveedor(p_idProveedor As Integer, p_nombre As String, p_cuit As String, p_direccion As String, p_telefono As String, p_email As String)
         Try
             conx.conectarBD()
 
-            consulta = New SqlCommand("update proveedores set nombre='" + p_nombre + "',cuit='" + p_cuit + "', direccion='" + p_direccion + "', telefono='" + p_telefono + "', email='" + p_email + "' where cuit='" + p_cuit + "'", conx.conexion)
+            consulta = New SqlCommand("update proveedores set nombre='" & p_nombre & "',cuit='" & p_cuit & "', direccion='" & p_direccion & "', telefono='" & p_telefono & "', email='" & p_email & "' where idProveedor=" & p_idProveedor & "", conx.conexion)
             consulta.ExecuteNonQuery()
 
             conx.desconectarBD()
@@ -276,11 +276,11 @@ Public Class proveedores
         End Try
     End Sub
 
-    Public Sub eliminarProveedor(p_cuit As String, p_fecha As String)
+    Public Sub eliminarProveedor(p_idProveedor As Integer, p_fecha As Date)
         Try
             conx.conectarBD()
 
-            consulta = New SqlCommand("update proveedores set fechaBaja = '" + p_fecha + "',activo=1 where cuit='" + p_cuit + "'", conx.conexion)
+            consulta = New SqlCommand("update proveedores set fechaBaja = '" & p_fecha & "',activo=1 where idProveedor=" & p_idProveedor & "", conx.conexion)
             consulta.ExecuteNonQuery()
 
             conx.desconectarBD()
@@ -290,10 +290,10 @@ Public Class proveedores
 
     End Sub
 
-    Public Function busquedaRapida(caracter As String) As List(Of proveedores)
+    Public Function busquedaRapida(ByVal caracter As String) As List(Of proveedores)
         conx.conectarBD()
         consulta = conx.conexion.CreateCommand()
-        consulta.CommandText = "select * from proveedores where nombre like '%" + caracter + "%' order by nombre"
+        consulta.CommandText = "select * from proveedores where nombre like '%" + caracter + "%' and idProveedor <> 4 order by nombre"
         Dim lector As SqlDataReader = consulta.ExecuteReader()
         Dim lista As New List(Of proveedores)
         Dim proveedor As proveedores

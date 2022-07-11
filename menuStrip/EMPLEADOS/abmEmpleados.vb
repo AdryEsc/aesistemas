@@ -242,9 +242,17 @@
         soloLetrasTxt(e)
     End Sub
 
-    Private Sub btnBusquedaRapida_Click(sender As Object, e As EventArgs) Handles btnBusquedaRapida.Click
-        dtgEmpleados.DataSource = vbNull
-        dtgEmpleados.DataSource = empleado.busquedaRapida(txtBusqueda.Text)
+
+
+    'Private Sub btnBusquedaRapida_Click(sender As Object, e As EventArgs)
+    '    dtgEmpleados.DataSource = vbNull
+    '    dtgEmpleados.DataSource = empleado.busquedaRapida(txtBusqueda.Text)
+    '    optimizar()
+    'End Sub
+
+    Private Sub txtBusqueda_TextChanged(sender As Object, e As EventArgs) Handles txtBusqueda.TextChanged
+        Dim filtro As String = CType(sender, TextBox).Text
+        dtgEmpleados.DataSource = empleado.busquedaRapida(filtro)
         optimizar()
     End Sub
 End Class

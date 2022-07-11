@@ -25,7 +25,6 @@ Partial Class abmClientes
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abmClientes))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.txtBusqueda = New System.Windows.Forms.TextBox()
         Me.fechaActual = New System.Windows.Forms.DateTimePicker()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -49,6 +48,8 @@ Partial Class abmClientes
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtgCLientes = New System.Windows.Forms.DataGridView()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtIdCliente = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtgCLientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -58,8 +59,9 @@ Partial Class abmClientes
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.GroupBox1.Controls.Add(Me.txtIdCliente)
+        Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.Label11)
-        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.txtBusqueda)
         Me.GroupBox1.Controls.Add(Me.fechaActual)
         Me.GroupBox1.Controls.Add(Me.Label10)
@@ -99,15 +101,6 @@ Partial Class abmClientes
         Me.Label11.TabIndex = 28
         Me.Label11.Text = "Ingrese iniciales del nombre para busqueda rapida:"
         '
-        'Button1
-        '
-        Me.Button1.Image = Global.menuStrip.My.Resources.Resources.vector_find_icon
-        Me.Button1.Location = New System.Drawing.Point(724, 12)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(32, 33)
-        Me.Button1.TabIndex = 27
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'txtBusqueda
         '
         Me.txtBusqueda.Location = New System.Drawing.Point(618, 19)
@@ -117,9 +110,9 @@ Partial Class abmClientes
         '
         'fechaActual
         '
-        Me.fechaActual.Location = New System.Drawing.Point(6, 25)
+        Me.fechaActual.Location = New System.Drawing.Point(524, 163)
         Me.fechaActual.Name = "fechaActual"
-        Me.fechaActual.Size = New System.Drawing.Size(200, 20)
+        Me.fechaActual.Size = New System.Drawing.Size(75, 20)
         Me.fechaActual.TabIndex = 25
         Me.fechaActual.Visible = False
         '
@@ -242,7 +235,7 @@ Partial Class abmClientes
         '
         'txtTelefono
         '
-        Me.txtTelefono.Location = New System.Drawing.Point(213, 151)
+        Me.txtTelefono.Location = New System.Drawing.Point(204, 151)
         Me.txtTelefono.Name = "txtTelefono"
         Me.txtTelefono.Size = New System.Drawing.Size(136, 20)
         Me.txtTelefono.TabIndex = 12
@@ -332,6 +325,23 @@ Partial Class abmClientes
         Me.dtgCLientes.Size = New System.Drawing.Size(1058, 367)
         Me.dtgCLientes.TabIndex = 1
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(8, 35)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(73, 13)
+        Me.Label7.TabIndex = 29
+        Me.Label7.Text = "Nro de cliente"
+        '
+        'txtIdCliente
+        '
+        Me.txtIdCliente.Enabled = False
+        Me.txtIdCliente.Location = New System.Drawing.Point(87, 32)
+        Me.txtIdCliente.Name = "txtIdCliente"
+        Me.txtIdCliente.Size = New System.Drawing.Size(84, 20)
+        Me.txtIdCliente.TabIndex = 30
+        '
         'abmClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -375,6 +385,7 @@ Partial Class abmClientes
     Friend WithEvents Label9 As Label
     Friend WithEvents fechaActual As DateTimePicker
     Friend WithEvents txtBusqueda As TextBox
-    Friend WithEvents Button1 As Button
     Friend WithEvents Label11 As Label
+    Friend WithEvents txtIdCliente As TextBox
+    Friend WithEvents Label7 As Label
 End Class

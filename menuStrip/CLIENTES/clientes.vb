@@ -111,7 +111,7 @@ Public Class clientes
             '    Exit Try
             'End If
 
-            consulta = New SqlCommand("insert into clientes (dni,nombre,apellido,email,telefono) values(" + p_dni + ",'" + p_nombre + "','" + p_apellido + "','" + p_email + "','" + p_telefono + "')", conx.conexion)
+            consulta = New SqlCommand("insert into clientes (dni,nombre,apellido,email,telefono) values(" & p_dni & ",'" & p_nombre & "','" & p_apellido & "','" & p_email & "','" & p_telefono & "')", conx.conexion)
             consulta.ExecuteNonQuery()
             MessageBox.Show("!El cliente: " + p_nombre.ToString + " " + p_apellido.ToString + " , DNI: " + p_dni + " fue cargado exitosamente¡", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
             conx.desconectarBD()
@@ -263,11 +263,11 @@ Public Class clientes
         Return busqueda
     End Function
 
-    Public Sub actualizarCliente(p_dni As String, p_nombre As String, p_apellido As String, p_email As String, p_telefono As String)
+    Public Sub actualizarCliente(p_idCliente As Integer, p_dni As String, p_nombre As String, p_apellido As String, p_email As String, p_telefono As String)
         Try
             conx.conectarBD()
 
-            consulta = New SqlCommand("update clientes set nombre='" + p_nombre + "',apellido='" + p_apellido + "', email='" + p_email + "', telefono='" + p_telefono + "' where dni='" + p_dni + "'", conx.conexion)
+            consulta = New SqlCommand("update clientes set nombre='" & p_nombre & "',apellido='" & p_apellido & "', email='" & p_email & "', telefono='" & p_telefono & "' where idCliente=" & p_idCliente & "", conx.conexion)
             consulta.ExecuteNonQuery()
 
             conx.desconectarBD()
@@ -277,11 +277,11 @@ Public Class clientes
     End Sub
 
 
-    Public Sub eliminarCliente(p_dni As String, p_fecha As String)
+    Public Sub eliminarCliente(p_idCliente As Integer, p_fecha As Date)
         Try
             conx.conectarBD()
 
-            consulta = New SqlCommand("update clientes set fechaBaja = '" + p_fecha + "',activo=1 where dni='" + p_dni + "'", conx.conexion)
+            consulta = New SqlCommand("update clientes set fechaBaja = '" & p_fecha & "', activo=1 where idCliente=" & p_idCliente & "", conx.conexion)
             consulta.ExecuteNonQuery()
 
             conx.desconectarBD()
@@ -291,7 +291,7 @@ Public Class clientes
 
     End Sub
 
-    Public Function busquedaRapida(caracter As String) As List(Of clientes)
+    Public Function busquedaRapida(ByVal caracter As String) As List(Of clientes)
         conx.conectarBD()
         consulta = conx.conexion.CreateCommand()
         consulta.CommandText = "select * from clientes where nombre like '%" + caracter + "%' order by nombre"

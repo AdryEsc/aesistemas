@@ -1,6 +1,7 @@
 ﻿Public Class abmClientes
     Dim cliente As New clientes()
     Dim resp As DialogResult
+    Dim idCliente As Integer
 
     Private Sub abmUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtDni.TabIndex = 0
@@ -51,6 +52,7 @@
     End Sub
 
     Public Sub optimizar()
+        txtIdCliente.Clear()
         txtDni.Clear()
         txtNombre.Clear()
         txtApellido.Clear()
@@ -71,18 +73,20 @@
 
     End Sub
 
-    Private Sub dtgUsuarios_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgCLientes.CellContentClick
-        txtDni.Text = dtgCLientes.Item(1, e.RowIndex).Value
-        txtNombre.Text = dtgCLientes.Item(2, e.RowIndex).Value
-        txtApellido.Text = dtgCLientes.Item(3, e.RowIndex).Value
-        txtEmail.Text = dtgCLientes.Item(4, e.RowIndex).Value
-        txtTelefono.Text = dtgCLientes.Item(5, e.RowIndex).Value
+    'Private Sub dtgUsuarios_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgCLientes.CellContentClick
+    '    txtDni.Text = dtgCLientes.Item(1, e.RowIndex).Value
+    '    txtNombre.Text = dtgCLientes.Item(2, e.RowIndex).Value
+    '    txtApellido.Text = dtgCLientes.Item(3, e.RowIndex).Value
+    '    txtEmail.Text = dtgCLientes.Item(4, e.RowIndex).Value
+    '    txtTelefono.Text = dtgCLientes.Item(5, e.RowIndex).Value
 
 
-        txtDni.Enabled = False
-        txtEmail.Enabled = False
+    '    txtDni.Enabled = False
+    '    txtEmail.Enabled = False
 
-    End Sub
+    'End Sub
+
+
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
         dtgCLientes.DataSource = vbNull
@@ -122,9 +126,11 @@
             Exit Sub
         End If
 
+        idCliente = Convert.ToInt32(txtIdCliente.Text)
+
         resp = MessageBox.Show("¿Esta seguro que desea modificar al cliente: " + nombre.ToString + " " + apellido.ToString + ", DNI: " + dni.ToString + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If (resp = DialogResult.Yes) Then
-            cliente.actualizarCliente(dni, nombre, apellido, email, telefono)
+            cliente.actualizarCliente(idCliente, dni, nombre, apellido, email, telefono)
             MessageBox.Show("¡El cliente: " + nombre.ToString + " " + apellido.ToString + ", DNI: " + dni.ToString + ", se actualizo con exito!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             MessageBox.Show("¡No se realizo ningun cambio!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -144,12 +150,12 @@
         Dim telefono As String = txtTelefono.Text
 
 
-        fechaActual.CustomFormat = "yyyy-mm-dd"
-        Dim fechaSistema As String = Convert.ToString(fechaActual.Value)
+        'fechaActual.CustomFormat = "yyyy-mm-dd"
+        'Dim fechaSistema As String = Convert.ToString(fechaActual.Value)
 
 
         If (dni = Nothing Or email = Nothing) Then
-            MessageBox.Show("!Para eliminar un cliente debe hacer click en el DNI¡", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("!Para eliminar un cliente debe hacer click en la tabla¡", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Exit Sub
         End If
 
@@ -162,9 +168,11 @@
             Exit Sub
         End If
 
-        resp = MessageBox.Show("¿Esta seguro que desea eliminar al cliente: " + nombre.ToString + " " + apellido.ToString + ", DNI: " + dni.ToString + "?", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+        idCliente = Convert.ToInt32(txtIdCliente.Text)
+
+        resp = MessageBox.Show("¿Esta seguro que desea eliminar al cliente: " + nombre.ToString + " " + apellido.ToString + ", DNI: " + dni.ToString + "? (Esta operacion lo dejara inactivo)", "AVISO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
         If (resp = DialogResult.Yes) Then
-            cliente.eliminarCliente(dni, fechaSistema)
+            cliente.eliminarCliente(idCliente, fechaActual.Value.Date)
             MessageBox.Show("¡El cliente: " + nombre.ToString + " " + apellido.ToString + ", DNI: " + dni.ToString + ", quedo inactivo!", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information)
             dtgCLientes.DataSource = vbNull
             dtgCLientes.DataSource = cliente.listarClientes()
@@ -182,9 +190,22 @@
         soloLetrasTxt(e)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        dtgCLientes.DataSource = vbNull
-        dtgCLientes.DataSource = cliente.busquedaRapida(txtBusqueda.Text)
+    Private Sub txtBusqueda_TextChanged(sender As Object, e As EventArgs) Handles txtBusqueda.TextChanged
+        Dim filtro As String = CType(sender, TextBox).Text
+        dtgCLientes.DataSource = cliente.busquedaRapida(filtro)
         optimizar()
+    End Sub
+
+    Private Sub dtgCLientes_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgCLientes.CellClick
+        txtIdCliente.Text = dtgCLientes.Item(0, e.RowIndex).Value
+        txtDni.Text = dtgCLientes.Item(1, e.RowIndex).Value
+        txtNombre.Text = dtgCLientes.Item(2, e.RowIndex).Value
+        txtApellido.Text = dtgCLientes.Item(3, e.RowIndex).Value
+        txtEmail.Text = dtgCLientes.Item(4, e.RowIndex).Value
+        txtTelefono.Text = dtgCLientes.Item(5, e.RowIndex).Value
+
+
+        txtDni.Enabled = False
+        txtEmail.Enabled = False
     End Sub
 End Class

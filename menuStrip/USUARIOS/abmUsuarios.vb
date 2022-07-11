@@ -6,12 +6,15 @@ Imports System.Configuration
 Public Class abmUsuarios
     Dim user As New usuarios()
     Dim resp As DialogResult
-    Dim strComando As String
-    Dim conexion As String
+    'Dim strComando As String
+    'Dim conexion As String
     Dim adapter As SqlDataAdapter
     Dim data As DataSet
 
     Dim aux_cargo As Integer
+
+    Dim conx As New conexionBD()
+    Dim consulta As SqlCommand
 
     Private Sub abmUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'txtDni.TabIndex = 0
@@ -19,14 +22,23 @@ Public Class abmUsuarios
         'dtgUsuarios.DataSource = vbNull
         'dtgUsuarios.DataSource = user.listarUsuarios()
 
-        conexion = "Data Source=COVID\SQLEXPRESS;Initial Catalog=AESistemas;Persist Security Info=True;User ID=sa;Password=Adry-49686"
-        strComando = "Select * from cargos"
-        adapter = New System.Data.SqlClient.SqlDataAdapter(strComando, conexion)
-        data = New DataSet
-        adapter.Fill(data)
-        cmbCargos.DataSource = data.Tables(0)
-        cmbCargos.DisplayMember = "nombre"
-        cmbCargos.ValueMember = "idCargo"
+        'conexion = "Data Source=COVID\SQLEXPRESS;Initial Catalog=AESistemas;Persist Security Info=True;User ID=sa;Password=Adry-49686"
+        'strComando = "Select * from cargos"
+
+        user.comboboxCargosUsuarios(cmbCargos)
+
+        'conx.conectarBD()
+        'consulta = conx.conexion.CreateCommand()
+        'consulta.CommandText = "select *from cargos"
+        'adapter = New System.Data.SqlClient.SqlDataAdapter(consulta.CommandText, conx.conexion)
+        'data = New DataSet
+        'adapter.Fill(data)
+        'cmbCargos.DataSource = data.Tables(0)
+        'cmbCargos.DisplayMember = "nombre"
+        'cmbCargos.ValueMember = "idCargo"
+        'conx.desconectarBD()
+
+
 
         'Dim value As Object = cmbCargos.SelectedValue
 
@@ -101,15 +113,6 @@ Public Class abmUsuarios
         'dtgUsuarios.Columns(7).Width = 80
         'dtgUsuarios.Columns(8).Width = 80
         'dtgUsuarios.Columns(9).Width = 50
-    End Sub
-
-    Private Sub dtgUsuarios_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgUsuarios.CellContentClick
-
-        'txtIdusuario.Text = dtgUsuarios.Item(0, e.RowIndex).Value
-        'txtUsuario.Text = dtgUsuarios.Item(1, e.RowIndex).Value
-        'txtContrasena.Text = dtgUsuarios.Item(2, e.RowIndex).Value
-
-
     End Sub
 
     Private Sub btnLimpiar_Click(sender As Object, e As EventArgs) Handles btnLimpiar.Click
@@ -224,12 +227,6 @@ Public Class abmUsuarios
         soloLetrasTxt(e)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        dtgUsuarios.DataSource = vbNull
-        dtgUsuarios.DataSource = user.busquedaRapida(txtBusqueda.Text)
-        optimizar()
-    End Sub
-
     Private Sub dtgUsuarios_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgUsuarios.CellClick
         txtIdusuario.Text = dtgUsuarios.Item(0, e.RowIndex).Value
         txtUsuario.Text = dtgUsuarios.Item(1, e.RowIndex).Value
@@ -249,5 +246,10 @@ Public Class abmUsuarios
     Private Sub rbtLibres_CheckedChanged(sender As Object, e As EventArgs) Handles rbtLibres.CheckedChanged
         dtgUsuarios.DataSource = vbNull
         dtgUsuarios.DataSource = user.listarUsuariosNoOcupados()
+    End Sub
+
+    Private Sub txtBusqueda_TextChanged(sender As Object, e As EventArgs) Handles txtBusqueda.TextChanged
+        Dim filtro As String = CType(sender, TextBox).Text
+        dtgUsuarios.DataSource = user.busquedaRapida(filtro)
     End Sub
 End Class

@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AESistemas.exe" size="1012128">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="AESistemas.exe" size="1317792">
       <assemblyIdentity name="AESistemas" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YcS4AuyhY21Y2uGCD2Oc7/XW2mZnk2ya3wSl2FBphOw=</dsig:DigestValue>
+        <dsig:DigestValue>FsEfFttArOfAfGlLGLqS0NbvLsHu2FueZ3usERseaf0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -319,7 +319,7 @@ Public Class empleados
 
     End Sub
 
-    Public Function busquedaRapida(caracter As String) As List(Of empleados)
+    Public Function busquedaRapida(ByVal caracter As String) As List(Of empleados)
         conx.conectarBD()
         consulta = conx.conexion.CreateCommand()
         consulta.CommandText = "select e.idEmpleado,e.dni,e.nombre,e.apellido,e.fechaNacimiento,e.direccion,e.email,e.telefono,e.fechaAlta,e.fechaBaja,e.activo,e.idUsuario,c.nombre from empleados as e join usuarios as u on e.idUsuario=u.idUsuario join cargos as c on u.idCargo=c.idCargo where e.nombre like '%" + caracter + "%' order by e.nombre"

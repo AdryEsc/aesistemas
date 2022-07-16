@@ -33,29 +33,26 @@ Partial Class AppAESistemasEmp
         Me.GestionDeVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ABMVentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InformesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProductomasVendidoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MejorClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.VentasMensualesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SALIR = New System.Windows.Forms.ToolStripMenuItem()
         Me.dtp_fecha = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtUsuario = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtNomApe = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtCargo = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtIdEmp = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -106,7 +103,7 @@ Partial Class AppAESistemasEmp
         'ABMProveedoresToolStripMenuItem
         '
         Me.ABMProveedoresToolStripMenuItem.Name = "ABMProveedoresToolStripMenuItem"
-        Me.ABMProveedoresToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ABMProveedoresToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
         Me.ABMProveedoresToolStripMenuItem.Text = "ABM Proveedores"
         '
         'GestionDeVentasToolStripMenuItem
@@ -120,59 +117,15 @@ Partial Class AppAESistemasEmp
         'ABMVentasToolStripMenuItem
         '
         Me.ABMVentasToolStripMenuItem.Name = "ABMVentasToolStripMenuItem"
-        Me.ABMVentasToolStripMenuItem.Size = New System.Drawing.Size(138, 22)
-        Me.ABMVentasToolStripMenuItem.Text = "ABM Ventas"
+        Me.ABMVentasToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.ABMVentasToolStripMenuItem.Text = "Realizar Venta"
         '
         'InformesToolStripMenuItem
         '
-        Me.InformesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentasToolStripMenuItem, Me.ClientesToolStripMenuItem, Me.EmpleadosToolStripMenuItem, Me.ProveedoresToolStripMenuItem})
         Me.InformesToolStripMenuItem.Image = Global.menuStrip.My.Resources.Resources.descarga
         Me.InformesToolStripMenuItem.Name = "InformesToolStripMenuItem"
         Me.InformesToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
         Me.InformesToolStripMenuItem.Text = "Informes"
-        '
-        'VentasToolStripMenuItem
-        '
-        Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductomasVendidoToolStripMenuItem, Me.MejorClienteToolStripMenuItem, Me.VentasMensualesToolStripMenuItem})
-        Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
-        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
-        Me.VentasToolStripMenuItem.Text = "Ventas"
-        '
-        'ProductomasVendidoToolStripMenuItem
-        '
-        Me.ProductomasVendidoToolStripMenuItem.Name = "ProductomasVendidoToolStripMenuItem"
-        Me.ProductomasVendidoToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
-        Me.ProductomasVendidoToolStripMenuItem.Text = "Productomas vendido"
-        '
-        'MejorClienteToolStripMenuItem
-        '
-        Me.MejorClienteToolStripMenuItem.Name = "MejorClienteToolStripMenuItem"
-        Me.MejorClienteToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
-        Me.MejorClienteToolStripMenuItem.Text = "Mejor cliente"
-        '
-        'VentasMensualesToolStripMenuItem
-        '
-        Me.VentasMensualesToolStripMenuItem.Name = "VentasMensualesToolStripMenuItem"
-        Me.VentasMensualesToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
-        Me.VentasMensualesToolStripMenuItem.Text = "Ventas mensuales"
-        '
-        'ClientesToolStripMenuItem
-        '
-        Me.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
-        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
-        Me.ClientesToolStripMenuItem.Text = "Clientes"
-        '
-        'EmpleadosToolStripMenuItem
-        '
-        Me.EmpleadosToolStripMenuItem.Name = "EmpleadosToolStripMenuItem"
-        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
-        Me.EmpleadosToolStripMenuItem.Text = "Empleados"
-        '
-        'ProveedoresToolStripMenuItem
-        '
-        Me.ProveedoresToolStripMenuItem.Name = "ProveedoresToolStripMenuItem"
-        Me.ProveedoresToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
-        Me.ProveedoresToolStripMenuItem.Text = "Proveedores"
         '
         'SALIR
         '
@@ -197,7 +150,7 @@ Partial Class AppAESistemasEmp
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Stencil", 72.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(247, 67)
+        Me.Label1.Location = New System.Drawing.Point(245, 228)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(645, 114)
         Me.Label1.TabIndex = 1
@@ -207,7 +160,7 @@ Partial Class AppAESistemasEmp
         'PictureBox6
         '
         Me.PictureBox6.Image = Global.menuStrip.My.Resources.Resources.imagen_4
-        Me.PictureBox6.Location = New System.Drawing.Point(449, 226)
+        Me.PictureBox6.Location = New System.Drawing.Point(881, 484)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(240, 139)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -217,52 +170,106 @@ Partial Class AppAESistemasEmp
         'PictureBox3
         '
         Me.PictureBox3.Image = Global.menuStrip.My.Resources.Resources.imagen_6
-        Me.PictureBox3.Location = New System.Drawing.Point(881, 226)
+        Me.PictureBox3.Location = New System.Drawing.Point(448, 484)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(240, 139)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 9
         Me.PictureBox3.TabStop = False
         '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.menuStrip.My.Resources.Resources.imagen_3
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 226)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(240, 139)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 8
-        Me.PictureBox2.TabStop = False
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.menuStrip.My.Resources.Resources.imagen_1
-        Me.PictureBox1.Location = New System.Drawing.Point(449, 484)
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 484)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(240, 139)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 7
         Me.PictureBox1.TabStop = False
         '
-        'PictureBox5
+        'GroupBox1
         '
-        Me.PictureBox5.Image = Global.menuStrip.My.Resources.Resources.imagen_11
-        Me.PictureBox5.Location = New System.Drawing.Point(881, 484)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(240, 139)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox5.TabIndex = 6
-        Me.PictureBox5.TabStop = False
+        Me.GroupBox1.Controls.Add(Me.txtIdEmp)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.txtCargo)
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.txtNomApe)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.txtUsuario)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 46)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(247, 164)
+        Me.GroupBox1.TabIndex = 11
+        Me.GroupBox1.TabStop = False
         '
-        'PictureBox4
+        'Label2
         '
-        Me.PictureBox4.Image = Global.menuStrip.My.Resources.Resources.imagen_8
-        Me.PictureBox4.Location = New System.Drawing.Point(0, 484)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(240, 139)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 5
-        Me.PictureBox4.TabStop = False
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(7, 24)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(59, 13)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "USUARIO:"
+        '
+        'txtUsuario
+        '
+        Me.txtUsuario.Enabled = False
+        Me.txtUsuario.Location = New System.Drawing.Point(73, 21)
+        Me.txtUsuario.Name = "txtUsuario"
+        Me.txtUsuario.Size = New System.Drawing.Size(167, 20)
+        Me.txtUsuario.TabIndex = 1
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(7, 61)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(57, 13)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "NOMBRE:"
+        '
+        'txtNomApe
+        '
+        Me.txtNomApe.Enabled = False
+        Me.txtNomApe.Location = New System.Drawing.Point(74, 58)
+        Me.txtNomApe.Name = "txtNomApe"
+        Me.txtNomApe.Size = New System.Drawing.Size(166, 20)
+        Me.txtNomApe.TabIndex = 3
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(7, 97)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(48, 13)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "CARGO:"
+        '
+        'txtCargo
+        '
+        Me.txtCargo.Enabled = False
+        Me.txtCargo.Location = New System.Drawing.Point(73, 94)
+        Me.txtCargo.Name = "txtCargo"
+        Me.txtCargo.Size = New System.Drawing.Size(167, 20)
+        Me.txtCargo.TabIndex = 5
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(7, 134)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(101, 13)
+        Me.Label5.TabIndex = 6
+        Me.Label5.Text = "ID DE EMPLEADO:"
+        '
+        'txtIdEmp
+        '
+        Me.txtIdEmp.Enabled = False
+        Me.txtIdEmp.Location = New System.Drawing.Point(114, 131)
+        Me.txtIdEmp.Name = "txtIdEmp"
+        Me.txtIdEmp.Size = New System.Drawing.Size(126, 20)
+        Me.txtIdEmp.TabIndex = 7
         '
         'AppAESistemasEmp
         '
@@ -273,12 +280,10 @@ Partial Class AppAESistemasEmp
         Me.BackColor = System.Drawing.Color.Silver
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(1121, 624)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.PictureBox6)
         Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.PictureBox5)
-        Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dtp_fecha)
         Me.Controls.Add(Me.MenuStrip1)
@@ -292,10 +297,9 @@ Partial Class AppAESistemasEmp
         Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -312,19 +316,18 @@ Partial Class AppAESistemasEmp
     Friend WithEvents ABMVentasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GestionDeProveedoresToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ABMProveedoresToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents VentasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ProductomasVendidoToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MejorClienteToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents VentasMensualesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ClientesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EmpleadosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ProveedoresToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents dtp_fecha As DateTimePicker
     Friend WithEvents Label1 As Label
-    Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents PictureBox6 As PictureBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents txtIdEmp As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txtCargo As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtNomApe As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtUsuario As TextBox
+    Friend WithEvents Label2 As Label
 End Class

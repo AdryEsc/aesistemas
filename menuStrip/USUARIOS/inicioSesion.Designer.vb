@@ -25,7 +25,6 @@ Partial Class inicioSesion
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(inicioSesion))
         Me.txtContrasena = New System.Windows.Forms.TextBox()
         Me.txtUsuario = New System.Windows.Forms.TextBox()
-        Me.dtp_fechaSistema = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -34,6 +33,7 @@ Partial Class inicioSesion
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -53,19 +53,6 @@ Partial Class inicioSesion
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Size = New System.Drawing.Size(149, 20)
         Me.txtUsuario.TabIndex = 0
-        '
-        'dtp_fechaSistema
-        '
-        Me.dtp_fechaSistema.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtp_fechaSistema.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtp_fechaSistema.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.dtp_fechaSistema.Location = New System.Drawing.Point(784, 12)
-        Me.dtp_fechaSistema.MaxDate = New Date(2040, 12, 31, 0, 0, 0, 0)
-        Me.dtp_fechaSistema.MinDate = New Date(2022, 6, 22, 0, 0, 0, 0)
-        Me.dtp_fechaSistema.Name = "dtp_fechaSistema"
-        Me.dtp_fechaSistema.Size = New System.Drawing.Size(88, 20)
-        Me.dtp_fechaSistema.TabIndex = 2
-        Me.dtp_fechaSistema.Value = New Date(2022, 6, 22, 13, 16, 2, 0)
         '
         'Label1
         '
@@ -156,12 +143,21 @@ Partial Class inicioSesion
         Me.Button2.Text = "SALIR"
         Me.Button2.UseVisualStyleBackColor = False
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(787, 15)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(85, 20)
+        Me.DateTimePicker1.TabIndex = 12
+        '
         'inicioSesion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
         Me.ClientSize = New System.Drawing.Size(884, 561)
+        Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -170,7 +166,6 @@ Partial Class inicioSesion
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.dtp_fechaSistema)
         Me.Controls.Add(Me.txtUsuario)
         Me.Controls.Add(Me.txtContrasena)
         Me.ForeColor = System.Drawing.Color.DarkOliveGreen
@@ -186,7 +181,6 @@ Partial Class inicioSesion
 
     Friend WithEvents txtContrasena As TextBox
     Friend WithEvents txtUsuario As TextBox
-    Friend WithEvents dtp_fechaSistema As DateTimePicker
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
@@ -195,4 +189,5 @@ Partial Class inicioSesion
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Button2 As Button
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class

@@ -13,7 +13,6 @@ C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.prueba.resour
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.texboxSoloNumerosOletras.resources
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.abmUsuarios.resources
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.inicioSesion.resources
-C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.abmVentas.resources
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\AESistemas.vbproj.GenerateResource.cache
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\AESistemas.vbproj.CoreCompileInputs.cache
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\AESistemas.exe.manifest
@@ -25,3 +24,4 @@ C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\AESistemas.vbprojAssemb
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.abmEmpleados.resources
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.usuariosParaEmpleados.resources
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.abmProductos.resources
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.realizarVenta.resources

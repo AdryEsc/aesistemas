@@ -309,6 +309,43 @@ Public Class productos
 
     End Function
 
+    Public Function busquedaRapidaParaFactura(ByVal caracter As String) As List(Of productos)
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select p.idProducto, p.descripcion, p.costo, p.venta, pv.nombre, p.fechaAlta, p.activo, p.stock, cp.descripcion from Productos as p join Proveedores as pv on p.idProveedor=pv.idProveedor join Categorias_Productos as cp on p.idCategoria=cp.idCategoria where p.descripcion like '%" + caracter + "%' and p.activo=0 order by p.descripcion"
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        Dim lista As New List(Of productos)
+        Dim producto As productos
+        Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+            producto = New productos
+
+            producto.Nro_Producto = lector.GetInt32(0)
+            producto.Descripcion = lector.GetString(1)
+            producto.Precio_Costo = lector.GetDecimal(2)
+            producto.Precio_Venta = lector.GetDecimal(3)
+            producto.Proveedor = lector.GetString(4)
+            producto.Fecha_Alta = lector.GetDateTime(5)
+            aux = Convert.ToInt32(lector.GetString(6))
+            If (aux = 0) Then
+                producto.Activo = "SI"
+            Else
+                producto.Activo = "No"
+            End If
+            producto.Stock = lector.GetDecimal(7)
+            producto.Categoria = lector.GetString(8)
+
+
+            lista.Add(producto)
+
+        End While
+        conx.desconectarBD()
+        Return lista
+
+    End Function
+
     Public Sub comboboxProveedores(ByVal cmb As ComboBox)
         conx.conectarBD()
         consulta = conx.conexion.CreateCommand()

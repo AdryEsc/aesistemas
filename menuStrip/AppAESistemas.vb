@@ -1,4 +1,6 @@
 ﻿Public Class AppAESistemas
+    Dim empleado As New empleados()
+    Dim idEmpleado As Integer
     Private Sub ABMDeProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMDeProductosToolStripMenuItem.Click
         abmProductos.ShowDialog()
     End Sub
@@ -28,7 +30,7 @@
     End Sub
 
     Private Sub ABMVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMVentasToolStripMenuItem.Click
-
+        realizarVenta.ShowDialog()
     End Sub
 
     Private Sub ABMProveedoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ABMProveedoresToolStripMenuItem.Click
@@ -36,12 +38,8 @@
     End Sub
 
     Private Sub AppAESistemas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dtp_fecha.Refresh()
-        dtp_fecha.Format = DateTimePickerFormat.Custom
-        dtp_fecha.CustomFormat = "dd/MM/yyyy"
-        dtp_fecha.Value = DateTime.Now
-        dtp_fecha.ShowUpDown = False
-
+        idEmpleado = Convert.ToInt32(txtIdEmp.Text)
+        empleado.datosInicioDeAppSistemas(idEmpleado)
         inicioSesion.Refresh()
     End Sub
 
@@ -51,5 +49,13 @@
 
     Private Sub GestionDeUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GestionDeUsuariosToolStripMenuItem.Click
 
+    End Sub
+
+    Private Sub InformesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InformesToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub RealizarVeToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        realizarVenta.ShowDialog()
     End Sub
 End Class

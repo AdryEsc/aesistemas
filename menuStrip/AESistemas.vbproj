@@ -201,12 +201,13 @@
     <Compile Include="USUARIOS\usuariosParaEmpleados.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VENTAS\abmVentas.Designer.vb">
-      <DependentUpon>abmVentas.vb</DependentUpon>
+    <Compile Include="VENTAS\realizarVenta.Designer.vb">
+      <DependentUpon>realizarVenta.vb</DependentUpon>
     </Compile>
-    <Compile Include="VENTAS\abmVentas.vb">
+    <Compile Include="VENTAS\realizarVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VENTAS\ventas.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AppAESistemas.resx">
@@ -248,8 +249,8 @@
     <EmbeddedResource Include="USUARIOS\usuariosParaEmpleados.resx">
       <DependentUpon>usuariosParaEmpleados.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VENTAS\abmVentas.resx">
-      <DependentUpon>abmVentas.vb</DependentUpon>
+    <EmbeddedResource Include="VENTAS\realizarVenta.resx">
+      <DependentUpon>realizarVenta.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -282,6 +283,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icono-principal.ico" />
+    <None Include="Resources\descarga %281%29.jpg" />
+    <None Include="Resources\descarga2.jpg" />
+    <None Include="Resources\images.png" />
+    <None Include="Resources\descarga %281%29.png" />
+    <None Include="Resources\images %282%29.jpg" />
+    <None Include="Resources\images %281%29.jpg" />
     <None Include="Resources\descarga1.jpg" />
     <None Include="Resources\imagen 11.jpg" />
     <None Include="Resources\imagen 8.jpg" />

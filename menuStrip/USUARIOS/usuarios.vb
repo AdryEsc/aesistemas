@@ -313,6 +313,78 @@ Public Class usuarios
         Return busqueda
     End Function
 
+    Public Function buscarIdUsuario(ByVal p_usuario As String, ByVal p_contrasena As String) As Integer
+        Dim idUser As Integer = 0
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select idUsuario from usuarios where usuario='" & p_usuario & "' and contrasena='" & p_contrasena & "'"
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        'Dim lista As New List(Of usuarios)
+        'Dim usuario As usuarios
+        'Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+            'usuario = New usuarios
+
+            idUser = lector.GetInt32(0)
+            'usuario.Dni = lector.GetInt32(1)
+            'usuario.Nombres = lector.GetString(2)
+            'usuario.Apellidos = lector.GetString(3)
+            'usuario.Usuario = lector.GetString(4)
+            'usuario.Contraseña = lector.GetString(5)
+            'usuario.Email = lector.GetString(6)
+            'usuario.Cargo = lector.GetString(7)
+            'usuario.Fecha_Alta = lector.GetDateTime(8)
+            ''cliente.Fecha_Baja = Convert.ToString(lector.GetDateTime(7))
+            'aux = Convert.ToInt32(lector.GetString(9))
+
+            'If (p_usuario = lector.GetString(1) Or p_contrasena = lector.GetString(2)) Then
+            '    busqueda = True
+            'End If
+            'lista.Add(usuario)
+
+        End While
+        conx.desconectarBD()
+        Return idUser
+    End Function
+
+    Public Function buscarIdEmpleado(ByVal p_idUsuario As String) As Integer
+        Dim idEmp As Integer = 0
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select idEmpleado from empleados where idUsuario=" & p_idUsuario & ""
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        'Dim lista As New List(Of usuarios)
+        'Dim usuario As usuarios
+        'Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+            'usuario = New usuarios
+
+            idEmp = lector.GetInt32(0)
+            'usuario.Dni = lector.GetInt32(1)
+            'usuario.Nombres = lector.GetString(2)
+            'usuario.Apellidos = lector.GetString(3)
+            'usuario.Usuario = lector.GetString(4)
+            'usuario.Contraseña = lector.GetString(5)
+            'usuario.Email = lector.GetString(6)
+            'usuario.Cargo = lector.GetString(7)
+            'usuario.Fecha_Alta = lector.GetDateTime(8)
+            ''cliente.Fecha_Baja = Convert.ToString(lector.GetDateTime(7))
+            'aux = Convert.ToInt32(lector.GetString(9))
+
+            'If (p_usuario = lector.GetString(1) Or p_contrasena = lector.GetString(2)) Then
+            '    busqueda = True
+            'End If
+            'lista.Add(usuario)
+
+        End While
+        conx.desconectarBD()
+        Return idEmp
+    End Function
+
     Public Sub actualizarUsuario(p_idUsuario As Integer, p_usuario As String, p_contrasena As String, p_idCargo As Integer)
         Try
             conx.conectarBD()

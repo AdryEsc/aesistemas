@@ -21,6 +21,8 @@ Public Class empleados
     Dim conx As New conexionBD()
     Dim consulta As SqlCommand
 
+
+
     Public Property Nro_Empleado() As Integer
         Get
             Return Me.c_idEmpleado
@@ -360,5 +362,48 @@ Public Class empleados
 
     End Function
 
+    Public Sub datosInicioDeAppSistemas(ByVal p_idEmpleado As Integer)
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select e.nombre,e.apellido,u.usuario,c.nombre from empleados as e join usuarios as u on e.idUsuario=u.idUsuario join cargos as c on u.idCargo=c.idCargo where e.idEmpleado=" & p_idEmpleado & ""
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        'Dim lista As New List(Of empleados)
+        'Dim emp As empleados
+        'Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+            'emp = New empleados
+            AppAESistemas.txtNomApe.Text = lector.GetString(0) + " " + lector.GetString(1)
+            AppAESistemas.txtUsuario.Text = lector.GetString(2)
+            AppAESistemas.txtCargo.Text = lector.GetString(3)
+
+
+        End While
+        conx.desconectarBD()
+
+    End Sub
+
+    Public Sub datosInicioDeAppSistemasEmp(ByVal p_idEmpleado As Integer)
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select e.nombre,e.apellido,u.usuario,c.nombre from empleados as e join usuarios as u on e.idUsuario=u.idUsuario join cargos as c on u.idCargo=c.idCargo where e.idEmpleado=" & p_idEmpleado & ""
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        'Dim lista As New List(Of empleados)
+        'Dim emp As empleados
+        'Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+            'emp = New empleados
+            AppAESistemasEmp.txtNomApe.Text = lector.GetString(0) + " " + lector.GetString(1)
+            AppAESistemasEmp.txtUsuario.Text = lector.GetString(2)
+            AppAESistemasEmp.txtCargo.Text = lector.GetString(3)
+
+
+        End While
+        conx.desconectarBD()
+
+    End Sub
 
 End Class

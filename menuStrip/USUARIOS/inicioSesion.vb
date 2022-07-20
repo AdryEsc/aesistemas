@@ -22,18 +22,18 @@
             idUsuario = user.buscarIdUsuario(usuario, contrasena)
             idEmpleado = user.buscarIdEmpleado(idUsuario)
             AppAESistemas.txtIdEmp.Text = idEmpleado
-            AppAESistemasEmp.txtIdEmp.Text = idEmpleado
+            'AppAESistemasEmp.txtIdEmp.Text = idEmpleado
             'MsgBox(idEmpleado.ToString)
-            Select Case idCargo
-                Case 1
-                    AppAESistemas.ShowDialog()
+            'Select Case idCargo
+            '    Case 1
+            AppAESistemas.ShowDialog()
 
-                Case 2
-                    AppAESistemasEmp.ShowDialog()
-                Case Else
-                    MsgBox("Este usuario o tiene cargo asignado")
-                    Exit Sub
-            End Select
+            'Case 2
+            'AppAESistemasEmp.ShowDialog()
+            'Case Else
+            'MsgBox("Este usuario o tiene cargo asignado")
+            'Exit Sub
+            'End Select
             txtUsuario.Clear()
             txtContrasena.Clear()
         Else

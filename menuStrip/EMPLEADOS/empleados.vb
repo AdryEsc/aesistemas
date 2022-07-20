@@ -374,9 +374,18 @@ Public Class empleados
 
         While (lector.Read())
             'emp = New empleados
-            AppAESistemas.txtNomApe.Text = lector.GetString(0) + " " + lector.GetString(1)
-            AppAESistemas.txtUsuario.Text = lector.GetString(2)
-            AppAESistemas.txtCargo.Text = lector.GetString(3)
+            If (lector.GetString(3) = "Administrador") Then
+                AppAESistemas.txtNomApe.Text = lector.GetString(0) + " " + lector.GetString(1)
+                AppAESistemas.txtUsuario.Text = lector.GetString(2)
+                AppAESistemas.txtCargo.Text = lector.GetString(3)
+            Else
+                AppAESistemas.txtNomApe.Text = lector.GetString(0) + " " + lector.GetString(1)
+                AppAESistemas.txtUsuario.Text = lector.GetString(2)
+                AppAESistemas.txtCargo.Text = lector.GetString(3)
+                AppAESistemas.GestionDeEmpleadosToolStripMenuItem.Enabled = False
+                AppAESistemas.GestionDeUsuariosToolStripMenuItem.Enabled = False
+            End If
+
 
 
         End While

@@ -201,6 +201,12 @@
     <Compile Include="USUARIOS\usuariosParaEmpleados.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VENTAS\clientesParaVenta.Designer.vb">
+      <DependentUpon>clientesParaVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VENTAS\clientesParaVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VENTAS\realizarVenta.Designer.vb">
       <DependentUpon>realizarVenta.vb</DependentUpon>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="USUARIOS\usuariosParaEmpleados.resx">
       <DependentUpon>usuariosParaEmpleados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VENTAS\clientesParaVenta.resx">
+      <DependentUpon>clientesParaVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VENTAS\realizarVenta.resx">
       <DependentUpon>realizarVenta.vb</DependentUpon>

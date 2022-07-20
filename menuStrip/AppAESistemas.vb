@@ -58,4 +58,10 @@
     Private Sub RealizarVeToolStripMenuItem_Click(sender As Object, e As EventArgs)
         realizarVenta.ShowDialog()
     End Sub
+
+    Private Sub AppAESistemas_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.GestionDeEmpleadosToolStripMenuItem.Enabled = True
+        Me.GestionDeUsuariosToolStripMenuItem.Enabled = True
+        inicioSesion.txtContrasena.UseSystemPasswordChar = True
+    End Sub
 End Class

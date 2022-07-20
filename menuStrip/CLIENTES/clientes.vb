@@ -5,7 +5,7 @@ Imports System.Configuration
 
 Public Class clientes
 
-    Dim c_idUsuario As Integer
+    Dim c_idCliente As Integer
     Dim c_dni As Integer
     Dim c_nombre As String
     Dim c_apellido As String
@@ -18,12 +18,12 @@ Public Class clientes
     Dim conx As New conexionBD()
     Dim consulta As SqlCommand
 
-    Public Property Nro_Usuario() As Integer
+    Public Property Nro_Cliente() As Integer
         Get
-            Return Me.c_idUsuario
+            Return Me.c_idCliente
         End Get
         Set(value As Integer)
-            Me.c_idUsuario = value
+            Me.c_idCliente = value
         End Set
     End Property
 
@@ -134,7 +134,7 @@ Public Class clientes
         While (lector.Read())
             cliente = New clientes
 
-            cliente.Nro_Usuario = lector.GetInt32(0)
+            cliente.Nro_Cliente = lector.GetInt32(0)
             cliente.Dni = lector.GetInt32(1)
             cliente.Nombres = lector.GetString(2)
             cliente.Apellidos = lector.GetString(3)
@@ -170,7 +170,7 @@ Public Class clientes
         While (lector.Read())
             cliente = New clientes
 
-            cliente.Nro_Usuario = lector.GetInt32(0)
+            cliente.Nro_Cliente = lector.GetInt32(0)
             cliente.Dni = lector.GetInt32(1)
             cliente.Nombres = lector.GetString(2)
             cliente.Apellidos = lector.GetString(3)
@@ -205,7 +205,7 @@ Public Class clientes
         While (lector.Read())
             cliente = New clientes
 
-            cliente.Nro_Usuario = lector.GetInt32(0)
+            cliente.Nro_Cliente = lector.GetInt32(0)
             cliente.Dni = lector.GetInt32(1)
             cliente.Nombres = lector.GetString(2)
             cliente.Apellidos = lector.GetString(3)
@@ -304,7 +304,7 @@ Public Class clientes
         While (lector.Read())
             cliente = New clientes
 
-            cliente.Nro_Usuario = lector.GetInt32(0)
+            cliente.Nro_Cliente = lector.GetInt32(0)
             cliente.Dni = lector.GetInt32(1)
             cliente.Nombres = lector.GetString(2)
             cliente.Apellidos = lector.GetString(3)
@@ -328,6 +328,76 @@ Public Class clientes
     End Function
 
 
+    Public Function busquedaRapidaClientesAct(ByVal caracter As String) As List(Of clientes)
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select * from clientes where activo=0 and nombre like '%" + caracter + "%' order by nombre"
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        Dim lista As New List(Of clientes)
+        Dim cliente As clientes
+        Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
 
+        While (lector.Read())
+            cliente = New clientes
+
+            cliente.Nro_Cliente = lector.GetInt32(0)
+            cliente.Dni = lector.GetInt32(1)
+            cliente.Nombres = lector.GetString(2)
+            cliente.Apellidos = lector.GetString(3)
+            cliente.Email = lector.GetString(4)
+            cliente.Telefono = lector.GetString(5)
+            cliente.Fecha_Alta = lector.GetDateTime(6)
+            aux = Convert.ToInt32(lector.GetString(7))
+            'cliente.Fecha_Baja = Convert.ToString(lector.GetDateTime(7))
+
+            If (aux = 0) Then
+                cliente.Activo = "Si"
+            Else
+                cliente.Activo = "No"
+            End If
+            lista.Add(cliente)
+
+        End While
+        conx.desconectarBD()
+        Return lista
+
+    End Function
+
+    Public Function busquedaRapidaClientesActPorDni(ByVal caracter As String) As List(Of clientes)
+        conx.conectarBD()
+        consulta = conx.conexion.CreateCommand()
+        consulta.CommandText = "select * from clientes where activo=0 and dni like '%" + caracter + "%' order by nombre"
+        Dim lector As SqlDataReader = consulta.ExecuteReader()
+        Dim lista As New List(Of clientes)
+        Dim cliente As clientes
+        Dim aux As Integer = 0
+        'Dim i As Nullable(Of DateTime)
+
+        While (lector.Read())
+            cliente = New clientes
+
+            cliente.Nro_Cliente = lector.GetInt32(0)
+            cliente.Dni = lector.GetInt32(1)
+            cliente.Nombres = lector.GetString(2)
+            cliente.Apellidos = lector.GetString(3)
+            cliente.Email = lector.GetString(4)
+            cliente.Telefono = lector.GetString(5)
+            cliente.Fecha_Alta = lector.GetDateTime(6)
+            aux = Convert.ToInt32(lector.GetString(7))
+            'cliente.Fecha_Baja = Convert.ToString(lector.GetDateTime(7))
+
+            If (aux = 0) Then
+                cliente.Activo = "Si"
+            Else
+                cliente.Activo = "No"
+            End If
+            lista.Add(cliente)
+
+        End While
+        conx.desconectarBD()
+        Return lista
+
+    End Function
 
 End Class

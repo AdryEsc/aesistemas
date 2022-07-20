@@ -25,3 +25,4 @@ C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.abmEmpleados.
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.usuariosParaEmpleados.resources
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.abmProductos.resources
 C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.realizarVenta.resources
+C:\Users\adry\source\repos\menuStrip\menuStrip\obj\Debug\menuStrip.clientesParaVenta.resources
